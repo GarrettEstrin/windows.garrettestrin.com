@@ -1,0 +1,23 @@
+{
+  "name": "windows.garrettestrin.com",
+  "version": "1.0.0",
+  "description": "Personal portfolio site in the theme of Windows 95.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GarrettEstrin/windows.garrettestrin.com.git"
+  },
+  "author": "Garrett Estrin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GarrettEstrin/windows.garrettestrin.com/issues"
+  },
+  "homepage": "https://github.com/GarrettEstrin/windows.garrettestrin.com#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "morgan": "^1.8.2"
+  }
+}
