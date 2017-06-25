@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>React Tutorial</title>
+    <title>GarrettEstrin.com</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js " charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js " charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.20/browser.min.js" charset="utf-8"></script>
@@ -13,24 +13,31 @@
   </head>
   <body>
       <div class="desktop">
+          <div id="app1" class="app" ondblclick="app1DoubleClick()"></div>
           <div class="taskbar">
             <div id="start" class="startRest">Start</div>
           </div>
       </div>
-    <div id="app"></div>
     <script type="text/babel">
+    function app1DoubleClick(){
+        console.log('double clicked')
+    }
       var FirstComponent = React.createClass({
         render: function(){
           return (
-            <h1>This is our first component.</h1>
+            <div className="icon-container">
+                <div className="icon">
+                    <div className="text">Story <br/>Time</div>
+                </div>
+            </div>
           )
         }
       });
 
-    //   ReactDOM.render(
-    //     <FirstComponent />,
-    //     document.getElementById('app')
-    //   )
+      ReactDOM.render(
+        <FirstComponent />,
+        document.getElementById('app1')
+      )
     </script>
   </body>
 </html>

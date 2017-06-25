@@ -29,11 +29,11 @@ body {
 
 #start {
     background: url(../images/start_icon.png) left center no-repeat;
-    background-size: 17px 15px;
+    background-size: 17px 17px;
     text-align: right;
     font-weight: bolder;
     width: 52px;
-    height: 21px;
+    height: 20px;
     display: inline-block;
     padding: 1px 2px;
     margin-left: 2px;
@@ -53,4 +53,25 @@ body {
     border-left: inset 2px black;
     border-bottom: inset 2px white;
     border-right: inset 2px white;
+}
+
+/*Application styles*/
+
+.icon-container {
+    width: 100px;
+    height: 100px;
+    padding: 20px 0 0 20px;
+}
+
+.icon {
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.text {
+    padding: 27px 0;
 }
