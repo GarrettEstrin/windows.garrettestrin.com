@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/GarrettEstrin/windows.garrettestrin.com#readme",
   "dependencies": {
+    "ejs": "^2.5.6",
     "express": "^4.15.3",
+    "grunt": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
     "morgan": "^1.8.2"
   }
 }

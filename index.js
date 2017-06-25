@@ -4,9 +4,9 @@ const
     path = require("path"),
     PORT = 3000
 app.use(express.static('public'))
-
+app.set('view engine', 'ejs')
 app.get('/', function(req, res){
-    res.send("This is the home page")
+    res.sendFile(path.join(__dirname+'/public/views/index.html'))
 })
 
 app.listen(PORT, function () {
