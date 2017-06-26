@@ -1,5 +1,102 @@
-body {
+html {
     height: 100%;
     width: 100%;
-    background-color: ##10807F;
+    body {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
 }
+
+
+
+.desktop {
+    height: 100%;
+    width: 100%;
+    background-color: #10807F;
+    position: relative;
+    .taskbar {
+        height: 26px;
+        background-color: rgb(192,192,192);
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        border-top: ridge 2px white;
+        #start {
+            background: url(../images/start_icon.png) left center no-repeat;
+            background-size: 17px 17px;
+            text-align: right;
+            font-weight: bolder;
+            width: 52px;
+            height: 20px;
+            display: inline-block;
+            padding: 1px 2px;
+            margin-left: 2px;
+            cursor: default;
+            user-select: none;
+        }
+        .startRest {
+            border-top: ridge 2px white;
+            border-left: ridge 2px white;
+            border-bottom: ridge 2px black;
+            border-right: ridge 2px black;
+        }
+        .startRest:active {
+            border-top: inset 2px black;
+            border-left: inset 2px black;
+            border-bottom: inset 2px white;
+            border-right: inset 2px white;
+        }
+        .notifications {
+            text-align: right;
+            font-weight: bolder;
+            min-width: 75px;
+            height: 20px;
+            float: right;
+            padding: 1px 0px;
+            margin-left: 2px;
+            position: relative;
+            right: 2px;
+            border-top: inset 2px grey;
+            border-left: inset 2px grey;
+            border-bottom: inset 2px white;
+            border-right: inset 2px white;
+            font-size: 12px;
+            padding: 5px 0;
+            .notification-icon {
+                height: 20px;
+                width: 20px;
+                background-image: url(https://garrettestrin.github.io/connect_four/logo.png);
+                background-size: contain;
+                background-color: #fff;
+                float: left;
+                position: relative;
+                top: -3px;
+            }
+        }
+    }   
+}
+
+/*Application styles*/
+#app1 {
+    .icon-container {
+        width: 100px;
+        height: 100px;
+        padding: 20px 0 0 20px;
+        .icon {
+            background-image: url(../images/st.png);
+            background-size: contain;
+            height: 100%;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 20px;
+            text-align: center;
+        }
+        .icon-text {
+            text-align: center;
+        }
+    }
+}
+

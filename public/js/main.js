@@ -11,7 +11,6 @@
 
 // notification clock function
 function startTime() {
-    console.log("start Time")
     var now = new Date();
     var h = now.getHours();
     var ampm = "AM";
