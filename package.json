@@ -2,10 +2,8 @@
   "name": "windows.garrettestrin.com",
   "version": "1.0.0",
   "description": "Personal portfolio site in the theme of Windows 95.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "index.js"
   },
   "repository": {
     "type": "git",
