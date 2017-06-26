@@ -55,8 +55,36 @@ body {
     border-right: inset 2px white;
 }
 
-/*Application styles*/
+.notifications {
+    text-align: right;
+    font-weight: bolder;
+    min-width: 75px;
+    height: 20px;
+    float: right;
+    padding: 1px 0px;
+    margin-left: 2px;
+    position: relative;
+    right: 2px;
+    border-top: inset 2px grey;
+    border-left: inset 2px grey;
+    border-bottom: inset 2px white;
+    border-right: inset 2px white;
+    font-size: 12px;
+    padding: 5px 0;
+}
 
+.notification-icon {
+    height: 20px;
+    width: 20px;
+    background-image: url(https://garrettestrin.github.io/connect_four/logo.png);
+    background-size: contain;
+    background-color: #fff;
+    float: left;
+    position: relative;
+    top: -3px;
+}
+
+/*Application styles*/
 .icon-container {
     width: 100px;
     height: 100px;

@@ -10,19 +10,24 @@
 
     <!--CSS-->
     <link rel="stylesheet" href="css/main.css">
+
   </head>
   <body>
       <div class="desktop">
           <div id="app1" class="app" ondblclick="app1DoubleClick()"></div>
           <div class="taskbar">
             <div id="start" class="startRest">Start</div>
+            <div class="notifications">
+                <div class="notification-icon"></div>
+                <div class="time" id="time" onload="startTime()"></div>
+            </div>
           </div>
       </div>
     <script type="text/babel">
     function app1DoubleClick(){
         console.log('double clicked')
     }
-      var FirstComponent = React.createClass({
+      var App1 = React.createClass({
         render: function(){
           return (
             <div className="icon-container">
@@ -35,9 +40,11 @@
       });
 
       ReactDOM.render(
-        <FirstComponent />,
+        <App1 />,
         document.getElementById('app1')
       )
     </script>
+    <!--JS-->
+    <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
