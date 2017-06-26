@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Personal portfolio site in the theme of Windows 95.",
   "main": "server.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GarrettEstrin/windows.garrettestrin.com.git"
