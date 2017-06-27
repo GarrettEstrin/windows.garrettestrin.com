@@ -110,12 +110,27 @@ html {
           border-left: outset 1px white;
           margin: 2px;
           text-align: center;
-          line-height: 12px; }
+          line-height: 12px;
+          position: relative;
+          right: 1px; }
         .desktop .window .window-container .window-title-bar .x:active {
           border-top: outset 1px black;
           border-left: outset 1px black;
           border-bottom: outset 1px white;
           border-right: outset 1px white; }
+      .desktop .window .window-container h1 {
+        margin: 5px 0 0 20px; }
+      .desktop .window .window-container .window-body {
+        height: 280px;
+        width: 390px;
+        background-color: #FFFFEC;
+        margin: 0 0 0 20px;
+        position: absolute;
+        bottom: 20px; }
+        .desktop .window .window-container .window-body h4 {
+          margin: 10px 0 0 10px;
+          width: 100%;
+          line-height: 1; }
 
 /*Application styles*/
 #app1 .icon-container {
