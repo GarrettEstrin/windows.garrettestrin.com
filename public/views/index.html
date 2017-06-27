@@ -13,16 +13,23 @@
 
   </head>
   <body>
+      <!--start desktop-->
       <div class="desktop">
           <div id="app1" class="app" ondblclick="app1DoubleClick()"></div>
+          <div class="window" id="window"></div>
+          <!--start taskbar-->
           <div class="taskbar">
             <div id="start" class="startRest">Start</div>
+            <!--start notifications-->
             <div class="notifications">
                 <div class="notification-icon"></div>
                 <div class="time" id="time" onload="startTime()"></div>
             </div>
+            <!--end notifications-->
           </div>
+          <!--end taskbar-->
       </div>
+      <!--end desktop-->
     <script type="text/babel">
     function app1DoubleClick(){
         console.log('double clicked')
@@ -37,10 +44,25 @@
           )
         }
       });
-
+      var Window = React.createClass({
+        render: function(){
+          return (
+            <div className="window-container">
+                <div className="window-title-bar">Community Story Time</div>
+                <div className="window-body"></div>
+            </div>
+          )
+        }
+      });
+    //   Render App1
       ReactDOM.render(
         <App1 />,
         document.getElementById('app1')
+      )
+    //   Render Window
+      ReactDOM.render(
+        <Window />,
+        document.getElementById('window')
       )
     </script>
     <!--JS-->

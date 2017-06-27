@@ -56,13 +56,11 @@ html {
             min-width: 75px;
             height: 20px;
             float: right;
-            padding: 1px 0px;
             margin-left: 2px;
             position: relative;
             right: 2px;
             border-top: inset 2px grey;
             border-left: inset 2px grey;
-            border-bottom: inset 2px white;
             border-right: inset 2px white;
             font-size: 12px;
             padding: 5px 0;
@@ -77,26 +75,50 @@ html {
                 top: -3px;
             }
         }
-    }   
+    }  
+    // Start window styles
+    .window {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        overflow: hidden;
+        .window-container {
+            height: 400px;
+            width: 600px;
+            position: relative;
+            right: 0;
+            left: 0;
+            margin: -200px auto 0;
+            top: 50%;
+            border: solid 1px black;
+            .window-title-bar {
+                height: 30px;
+                text-align: center;
+            }
+        }
+    }
 }
 
 /*Application styles*/
 #app1 {
     .icon-container {
-        width: 100px;
-        height: 100px;
-        padding: 20px 0 0 20px;
+        width: 60px;
+        height: 60px;
+        padding: 10px 0 0 10px;
         .icon {
             background-image: url(../images/st.png);
             background-size: contain;
             height: 100%;
             width: 100%;
             border-radius: 10px;
-            font-size: 20px;
-            text-align: center;
         }
         .icon-text {
             text-align: center;
+            font-size: 12px;
         }
     }
 }
