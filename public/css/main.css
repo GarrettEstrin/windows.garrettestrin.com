@@ -6,7 +6,8 @@ html {
     width: 100%;
     padding: 0;
     margin: 0;
-    overflow: hidden; }
+    overflow: hidden;
+    font-family: 'Arial', sans-serif; }
 
 .desktop {
   height: 100%;
@@ -83,10 +84,38 @@ html {
       left: 0;
       margin: -200px auto 0;
       top: 50%;
-      border: solid 1px black; }
+      border-bottom: outset 2px black;
+      border-right: outset 2px black;
+      border-top: outset 2px white;
+      border-left: outset 2px white;
+      background-color: #C0C0C0; }
       .desktop .window .window-container .window-title-bar {
-        height: 30px;
-        text-align: center; }
+        height: 22px;
+        text-align: left;
+        background-color: #010081;
+        color: #fff;
+        line-height: 22px;
+        padding: 0 0 0 5px;
+        cursor: default; }
+        .desktop .window .window-container .window-title-bar .x {
+          float: right;
+          height: 15px;
+          width: 15px;
+          border: solid 1px black;
+          color: #000;
+          background-color: #C0C0C0;
+          border-bottom: outset 1px black;
+          border-right: outset 1px black;
+          border-top: outset 1px white;
+          border-left: outset 1px white;
+          margin: 2px;
+          text-align: center;
+          line-height: 12px; }
+        .desktop .window .window-container .window-title-bar .x:active {
+          border-top: outset 1px black;
+          border-left: outset 1px black;
+          border-bottom: outset 1px white;
+          border-right: outset 1px white; }
 
 /*Application styles*/
 #app1 .icon-container {
