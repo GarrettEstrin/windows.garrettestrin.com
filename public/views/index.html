@@ -15,7 +15,7 @@
   <body>
       <!--start desktop-->
       <div class="desktop">
-          <div id="app1" class="app" ondblclick="app1DoubleClick()"></div>
+          <div id="app1" class="app"></div>
           <div class="window" id="window"></div>
           <!--start taskbar-->
           <div class="taskbar">
@@ -47,7 +47,7 @@
       var Window = React.createClass({
         render: function(){
           return (
-            <div className="window-container hide">
+            <div className="window-container">
               <div className="window-title-bar">
                 Community Story Time
                 <div className="x">x</div>

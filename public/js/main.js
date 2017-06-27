@@ -28,3 +28,13 @@ function startTime() {
 }
 
 startTime();
+
+function showWindow(){
+    var window = document.getElementsByClassName('window-container')[0];
+    window.style.display = "block";
+}
+
+function hideWindow(){
+    var window = document.getElementsByClassName('window-container')[0];
+    window.style.display = "none";
+}
