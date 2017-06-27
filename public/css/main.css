@@ -142,7 +142,35 @@ html {
           border: solid 1px black;
           height: 200px;
           position: relative;
-          bottom: 0px; }
+          bottom: 0px;
+          background-image: url(../images/st_preview.png);
+          background-size: contain; }
+      .desktop .window .window-container .btns-container {
+        position: absolute;
+        right: 0;
+        width: 160px;
+        padding: 15px;
+        margin: -3px 0 0 0; }
+        .desktop .window .window-container .btns-container .btn {
+          height: 30px;
+          width: 160px;
+          border-bottom: outset 1px black;
+          border-right: outset 1px black;
+          border-top: outset 1px white;
+          border-left: outset 1px white;
+          font-size: 14px;
+          margin: 10px 0 0 0; }
+        .desktop .window .window-container .btns-container .btn:active {
+          border-top: outset 1px black;
+          border-left: outset 1px black;
+          border-bottom: outset 1px white;
+          border-right: outset 1px white; }
+        .desktop .window .window-container .btns-container .btn:focus {
+          outline: none; }
+        .desktop .window .window-container .btns-container .btn-project {
+          margin: 0; }
+        .desktop .window .window-container .btns-container .btn-github {
+          margin: 10px 0 30px 0; }
 
 /*Application styles*/
 #app1 .icon-container {
@@ -158,5 +186,8 @@ html {
   #app1 .icon-container .icon-text {
     text-align: center;
     font-size: 12px; }
+
+.hide {
+  display: none; }
 
 /*# sourceMappingURL=main.css.map */
