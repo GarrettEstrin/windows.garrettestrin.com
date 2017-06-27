@@ -88,7 +88,11 @@ html {
       border-right: outset 2px black;
       border-top: outset 2px white;
       border-left: outset 2px white;
-      background-color: #C0C0C0; }
+      background-color: #C0C0C0;
+      border-bottom: outset 2px black;
+      border-right: outset 2px black;
+      border-left: outset 2px white;
+      border-top: outset 2px white; }
       .desktop .window .window-container .window-title-bar {
         height: 22px;
         text-align: left;
