@@ -120,6 +120,10 @@ html {
           border-right: outset 1px white; }
       .desktop .window .window-container h1 {
         margin: 5px 0 0 20px; }
+      .desktop .window .window-container h5 {
+        margin: 0 0 0 20px;
+        width: 390px;
+        line-height: 1; }
       .desktop .window .window-container .window-body {
         height: 280px;
         width: 390px;
@@ -128,9 +132,13 @@ html {
         position: absolute;
         bottom: 20px; }
         .desktop .window .window-container .window-body h4 {
-          margin: 10px 0 0 10px;
-          width: 100%;
-          line-height: 1; }
+          margin: 5px; }
+        .desktop .window .window-container .window-body .thumbnail {
+          margin: 5px 15px 15px;
+          border: solid 1px black;
+          height: 200px;
+          position: relative;
+          bottom: 0px; }
 
 /*Application styles*/
 #app1 .icon-container {

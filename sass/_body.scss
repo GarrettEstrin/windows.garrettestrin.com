@@ -135,6 +135,11 @@ html {
             h1 {
                 margin: 5px 0 0 20px;
             }
+            h5 {
+                margin: 0 0 0 20px;
+                width: 390px;
+                line-height: 1;
+            }
             .window-body {
                 height: 280px;
                 width: 390px;
@@ -143,9 +148,14 @@ html {
                 position: absolute;
                 bottom: 20px;
                 h4 {
-                    margin: 10px 0 0 10px;
-                    width: 100%;
-                    line-height: 1;
+                    margin: 5px;
+                }
+                .thumbnail {
+                    margin: 5px 15px 15px;
+                    border: solid 1px black;
+                    height: 200px;
+                    position: relative;
+                    bottom: 0px;
                 }
             }
         }
