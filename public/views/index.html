@@ -44,7 +44,9 @@
             projectTitle={this.props.projectTitle}
             projectSubtitle={this.props.projectSubtitle}
             projectDescription={this.props.projectDescription}
-            projectThumbnail={this.props.projectThumbnail}/>,
+            projectThumbnail={this.props.projectThumbnail}
+            projectCodeLink={this.props.projectCodeLink}
+            projectViewLink={this.props.projectViewLink}/>,
             document.getElementById('window')
           )
         },
@@ -80,10 +82,10 @@
                 <div className="thumbnail"></div>
               </div>
               <div className="btns-container">
-                <a href="http://st.garrettestrin.com/" target="_blank">
+                <a href={this.props.projectViewLink} target="_blank">
                   <button className="btn btn-project">View Project</button>
                 </a>
-                <a href="https://github.com/GarrettEstrin/story_time" target="_blank">
+                <a href={this.props.projectCodeLink} target="_blank">
                   <button className="btn btn-github">View Project Code</button>
                 </a>
                 <hr />
@@ -99,7 +101,9 @@
         projectTitle="Community Story Time" 
         projectSubtitle="A rails based web app that allows people to collaborate on stories."
         projectDescription="At community story time, users can start stories, continue previously started stories and make comments on stories."
-        projectThumbnail="../images/st_preview.png"/>,
+        projectThumbnail="../images/st_preview.png"
+        projectCodeLink="https://github.com/GarrettEstrin/story_time"
+        projectViewLink="http://st.garrettestrin.com/"/>,
         document.getElementById('app1')
       )
     </script>
