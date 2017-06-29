@@ -35,12 +35,16 @@
         console.log('double clicked')
     }
       var App1 = React.createClass({
-        showWindow: function(){
+        showWindow: function(props){
           console.log("show window");
           var window = document.getElementsByClassName('window')[0];
           window.style.display = "block";
           ReactDOM.render(
-            <Window />,
+            <Window 
+            projectTitle={this.props.projectTitle}
+            projectSubtitle={this.props.projectSubtitle}
+            projectDescription={this.props.projectDescription}
+            projectThumbnail={this.props.projectThumbnail}/>,
             document.getElementById('window')
           )
         },
@@ -48,7 +52,7 @@
           return (
             <div className="icon-container" onClick={this.showWindow}>
                 <div className="icon"></div>
-                <div className="icon-text">Community Story Time</div>
+                <div className="icon-text">{this.props.projectTitle}</div>
             </div>
           )
         }
@@ -66,13 +70,13 @@
           return (
             <div className="window-container">
               <div className="window-title-bar">
-                Community Story Time
+                {this.props.projectTitle}
                 <div className="x" onClick={this.unmountMe}>x</div>
               </div>
-              <h1>Community Story Time </h1>
-              <h5>A rails based web app that allows people to collaborate on stories.</h5> 
+              <h1>{this.props.projectTitle}</h1>
+              <h5>{this.props.projectSubtitle}</h5> 
               <div className="window-body"> 
-                <h4>At community story time, users can start stories, continue previously started stories and make comments on stories.</h4>
+                <h4>{this.props.projectDescription}</h4>
                 <div className="thumbnail"></div>
               </div>
               <div className="btns-container">
@@ -91,7 +95,11 @@
       });
     //   Render App1
       ReactDOM.render(
-        <App1 />,
+        <App1 
+        projectTitle="Community Story Time" 
+        projectSubtitle="A rails based web app that allows people to collaborate on stories."
+        projectDescription="At community story time, users can start stories, continue previously started stories and make comments on stories."
+        projectThumbnail="../images/st_preview.png"/>,
         document.getElementById('app1')
       )
     </script>
