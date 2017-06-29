@@ -75,7 +75,8 @@ html {
     left: 0;
     top: 0;
     bottom: 0;
-    overflow: hidden; }
+    overflow: hidden;
+    display: none; }
     .desktop .window .window-container {
       height: 400px;
       width: 600px;
@@ -136,7 +137,7 @@ html {
         position: absolute;
         bottom: 20px; }
         .desktop .window .window-container .window-body h4 {
-          margin: 5px; }
+          margin: 5px 15px; }
         .desktop .window .window-container .window-body .thumbnail {
           margin: 5px 15px 15px;
           border: solid 1px black;

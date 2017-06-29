@@ -1,13 +1,13 @@
 // right click context menu
-(function() {
+// (function() {
 
-  "use strict";
+//   "use strict";
 
-  document.addEventListener( "contextmenu", function(e) {
-    console.log(e);
-  });
+//   document.addEventListener( "contextmenu", function(e) {
+//     console.log(e);
+//   });
 
-})();
+// })();
 
 // notification clock function
 function startTime() {
@@ -28,11 +28,6 @@ function startTime() {
 }
 
 startTime();
-
-function showWindow(){
-    var window = document.getElementsByClassName('window-container')[0];
-    window.style.display = "block";
-}
 
 function hideWindow(){
     var window = document.getElementsByClassName('window-container')[0];

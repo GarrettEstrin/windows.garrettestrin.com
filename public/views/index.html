@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/main.css">
 
   </head>
-  <body>
+  <body id="body">
       <!--start desktop-->
       <div class="desktop">
           <div id="app1" class="app"></div>
@@ -35,9 +35,18 @@
         console.log('double clicked')
     }
       var App1 = React.createClass({
+        showWindow: function(){
+          console.log("show window");
+          var window = document.getElementsByClassName('window')[0];
+          window.style.display = "block";
+          ReactDOM.render(
+            <Window />,
+            document.getElementById('window')
+          )
+        },
         render: function(){
           return (
-            <div className="icon-container">
+            <div className="icon-container" onClick={this.showWindow}>
                 <div className="icon"></div>
                 <div className="icon-text">Community Story Time</div>
             </div>
@@ -45,12 +54,20 @@
         }
       });
       var Window = React.createClass({
+        unmountMe: function(){
+          console.log("unmount")
+          ReactDOM.unmountComponentAtNode(
+            document.getElementById('window')
+          )
+          var window = document.getElementsByClassName('window')[0];
+          window.style.display = "none";
+        },
         render: function(){
           return (
             <div className="window-container">
               <div className="window-title-bar">
                 Community Story Time
-                <div className="x">x</div>
+                <div className="x" onClick={this.unmountMe}>x</div>
               </div>
               <h1>Community Story Time </h1>
               <h5>A rails based web app that allows people to collaborate on stories.</h5> 
@@ -66,7 +83,7 @@
                   <button className="btn btn-github">View Project Code</button>
                 </a>
                 <hr />
-                <button className="btn btn-close">Close</button>
+                <button className="btn btn-close" onClick={this.unmountMe}>Close</button>
               </div>
             </div>
           )
@@ -76,11 +93,6 @@
       ReactDOM.render(
         <App1 />,
         document.getElementById('app1')
-      )
-    //   Render Window
-      ReactDOM.render(
-        <Window />,
-        document.getElementById('window')
       )
     </script>
     <!--JS-->
