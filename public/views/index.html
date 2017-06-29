@@ -17,6 +17,7 @@
       <div class="desktop">
           <div id="app1" class="app"></div>
           <div id="app2" class="app"></div>
+          <div id="app3" class="app"></div>
           <div class="window" id="window"></div>
           <!--start taskbar-->
           <div class="taskbar">
@@ -35,7 +36,7 @@
     function app1DoubleClick(){
         console.log('double clicked')
     }
-      var App1 = React.createClass({
+      var App = React.createClass({
         showWindow: function(props){
           console.log("show window");
           var window = document.getElementsByClassName('window')[0];
@@ -96,9 +97,9 @@
           )
         }
       });
-    //   Render App1
+    //   Render Community Story Time Icon
       ReactDOM.render(
-        <App1 
+        <App
         projectTitle="Community Story Time" 
         projectIcon="icon story-time-icon"
         projectSubtitle="A rails based web app that allows people to collaborate on stories."
@@ -108,17 +109,29 @@
         projectViewLink="http://st.garrettestrin.com/"/>,
         document.getElementById('app1')
       )
-
+      // Render The Beer Journal Icon
       ReactDOM.render(
-        <App1 
-        projectTitle="Community Story Time" 
-        projectIcon="icon story-time-icon"
-        projectSubtitle="A rails based web app that allows people to collaborate on stories."
-        projectDescription="At community story time, users can start stories, continue previously started stories and make comments on stories."
-        projectThumbnail="story-time thumbnail"
-        projectCodeLink="https://github.com/GarrettEstrin/story_time"
-        projectViewLink="http://st.garrettestrin.com/"/>,
+        <App
+        projectTitle="The Beer Journal" 
+        projectIcon="icon beer-journal-icon"
+        projectSubtitle="A MEAN stack application where a user can log, review and share beers they have drunk"
+        projectDescription="Users can create and login in to the web app and create and see beers that they have drunk."
+        projectThumbnail="beer-journal thumbnail"
+        projectCodeLink="https://github.com/GarrettEstrin/beer_web"
+        projectViewLink="http://tbj.garrettestrin.com/"/>,
         document.getElementById('app2')
+      )
+      // Render Our Big Day in SF Icon
+      ReactDOM.render(
+        <App
+        projectTitle="Our Big Day in SF" 
+        projectIcon="icon big-day-icon"
+        projectSubtitle="Interactive Wedding Website"
+        projectDescription="Users can visit website for all wedding information and can fill out a form to inform bride and groom RSVP status."
+        projectThumbnail="big-day thumbnail"
+        projectCodeLink="https://github.com/GarrettEstrin/big_day"
+        projectViewLink="http://ourbigdayinsf.com/"/>,
+        document.getElementById('app3')
       )
     </script>
     <!--JS-->

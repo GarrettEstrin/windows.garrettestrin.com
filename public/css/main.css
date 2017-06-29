@@ -144,7 +144,9 @@ html {
           height: 200px;
           position: relative;
           bottom: 0px;
-          background-size: contain; }
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center; }
       .desktop .window .window-container .btns-container {
         position: absolute;
         right: 0;
@@ -175,15 +177,17 @@ html {
 /*Application styles*/
 .app {
   padding: 10px 0 0 10px;
-  margin: 0 0 20px 0; }
+  margin: 0 0 30px 0; }
   .app .icon-container {
     width: 60px;
     height: 60px; }
     .app .icon-container .icon {
-      background-size: contain;
+      background-size: cover;
       height: 100%;
       width: 100%;
-      border-radius: 10px; }
+      border-radius: 10px;
+      background-repeat: no-repeat;
+      background-position: center; }
     .app .icon-container .icon-text {
       text-align: center;
       font-size: 12px; }
@@ -193,6 +197,18 @@ html {
 
 .story-time {
   background-image: url(../images/st_preview.png); }
+
+.beer-journal-icon {
+  background-image: url(../images/tbj.png); }
+
+.beer-journal {
+  background-image: url(../images/tbj_preview.png); }
+
+.big-day-icon {
+  background-image: url(../images/bd.png); }
+
+.big-day {
+  background-image: url(../images/bd_preview.png); }
 
 .hide {
   display: none; }

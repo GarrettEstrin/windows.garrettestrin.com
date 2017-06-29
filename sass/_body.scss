@@ -161,7 +161,9 @@ html {
                     height: 200px;
                     position: relative;
                     bottom: 0px;
-                    background-size: contain;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
                 }
             }
             // btn styles
@@ -207,15 +209,17 @@ html {
 /*Application styles*/
 .app {
     padding: 10px 0 0 10px;
-    margin: 0 0 20px 0;
+    margin: 0 0 30px 0;
     .icon-container {
         width: 60px;
         height: 60px;
         .icon {
-            background-size: contain;
+            background-size: cover;
             height: 100%;
             width: 100%;
             border-radius: 10px;
+            background-repeat: no-repeat;
+            background-position: center;
         }
         .icon-text {
             text-align: center;
@@ -223,13 +227,4 @@ html {
         }
     }
 }
-.story-time-icon {
-    background-image: url(../images/st.png);
-}
-.story-time {
-    background-image: url(../images/st_preview.png);    
-}
-// Common CSS - Move to _common.scss later
-.hide {
-    display: none;
-}
+
