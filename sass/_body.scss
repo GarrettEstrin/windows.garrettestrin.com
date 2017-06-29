@@ -161,7 +161,6 @@ html {
                     height: 200px;
                     position: relative;
                     bottom: 0px;
-                    background-image: url(../images/st_preview.png);
                     background-size: contain;
                 }
             }
@@ -206,13 +205,13 @@ html {
 }
 
 /*Application styles*/
-#app1 {
+.app {
+    padding: 10px 0 0 10px;
+    margin: 0 0 20px 0;
     .icon-container {
         width: 60px;
         height: 60px;
-        padding: 10px 0 0 10px;
         .icon {
-            background-image: url(../images/st.png);
             background-size: contain;
             height: 100%;
             width: 100%;
@@ -224,8 +223,12 @@ html {
         }
     }
 }
-
-
+.story-time-icon {
+    background-image: url(../images/st.png);
+}
+.story-time {
+    background-image: url(../images/st_preview.png);    
+}
 // Common CSS - Move to _common.scss later
 .hide {
     display: none;

@@ -16,6 +16,7 @@
       <!--start desktop-->
       <div class="desktop">
           <div id="app1" class="app"></div>
+          <div id="app2" class="app"></div>
           <div class="window" id="window"></div>
           <!--start taskbar-->
           <div class="taskbar">
@@ -53,7 +54,7 @@
         render: function(){
           return (
             <div className="icon-container" onClick={this.showWindow}>
-                <div className="icon"></div>
+                <div className={this.props.projectIcon}></div>
                 <div className="icon-text">{this.props.projectTitle}</div>
             </div>
           )
@@ -79,7 +80,7 @@
               <h5>{this.props.projectSubtitle}</h5> 
               <div className="window-body"> 
                 <h4>{this.props.projectDescription}</h4>
-                <div className="thumbnail"></div>
+                <div className={this.props.projectThumbnail}></div>
               </div>
               <div className="btns-container">
                 <a href={this.props.projectViewLink} target="_blank">
@@ -99,12 +100,25 @@
       ReactDOM.render(
         <App1 
         projectTitle="Community Story Time" 
+        projectIcon="icon story-time-icon"
         projectSubtitle="A rails based web app that allows people to collaborate on stories."
         projectDescription="At community story time, users can start stories, continue previously started stories and make comments on stories."
-        projectThumbnail="../images/st_preview.png"
+        projectThumbnail="story-time thumbnail"
         projectCodeLink="https://github.com/GarrettEstrin/story_time"
         projectViewLink="http://st.garrettestrin.com/"/>,
         document.getElementById('app1')
+      )
+
+      ReactDOM.render(
+        <App1 
+        projectTitle="Community Story Time" 
+        projectIcon="icon story-time-icon"
+        projectSubtitle="A rails based web app that allows people to collaborate on stories."
+        projectDescription="At community story time, users can start stories, continue previously started stories and make comments on stories."
+        projectThumbnail="story-time thumbnail"
+        projectCodeLink="https://github.com/GarrettEstrin/story_time"
+        projectViewLink="http://st.garrettestrin.com/"/>,
+        document.getElementById('app2')
       )
     </script>
     <!--JS-->
