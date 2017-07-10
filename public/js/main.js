@@ -17,6 +17,8 @@ function startTime() {
     if (h > 12){
         h = h - 12
         ampm = "PM";
+    }else if (h==0){
+        h=12;
     }
     var m = now.getMinutes();
     if(m < 10){
@@ -29,7 +31,11 @@ function startTime() {
 
 startTime();
 
-function hideWindow(){
-    var window = document.getElementsByClassName('window-container')[0];
-    window.style.display = "none";
+function toggleShow(el){
+    var element = document.getElementById(el);
+    if(element.style.display == "none" || element.style.display == ""){
+        element.style.display = "block";
+    }else if(element.style.display == "block"){
+        element.style.display = "none";
+    }
 }

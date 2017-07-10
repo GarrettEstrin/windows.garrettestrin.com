@@ -21,7 +21,7 @@
           <div class="window" id="window"></div>
           <!--start taskbar-->
           <div class="taskbar">
-            <div id="start" class="startRest">Start</div>
+            <div id="start" class="startRest" onclick="toggleShow('start-menu')">Start</div>
             <!--start notifications-->
             <div class="notifications">
                 <div class="notification-icon"></div>
@@ -30,6 +30,9 @@
             <!--end notifications-->
           </div>
           <!--end taskbar-->
+          <!--start start menu-->
+          <div class="start-menu" id="start-menu"></div>
+          <!--end start menu-->
       </div>
       <!--end desktop-->
     <script type="text/babel">

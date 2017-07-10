@@ -204,6 +204,16 @@ html {
             }
         }
     }
+    // start menu styles
+    .start-menu {
+        border: solid 1px black;
+        height: 400px;
+        width: 200px;
+        position: absolute;
+        left: 0;
+        bottom: 29px;
+        display: none;
+    }
 }
 
 /*Application styles*/
@@ -220,6 +230,7 @@ html {
             border-radius: 10px;
             background-repeat: no-repeat;
             background-position: center;
+            margin: 0 0 2px 0;
         }
         .icon-text {
             text-align: center;

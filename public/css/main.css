@@ -173,6 +173,14 @@ html {
           margin: 0; }
         .desktop .window .window-container .btns-container .btn-github {
           margin: 10px 0 30px 0; }
+  .desktop .start-menu {
+    border: solid 1px black;
+    height: 400px;
+    width: 200px;
+    position: absolute;
+    left: 0;
+    bottom: 29px;
+    display: none; }
 
 /*Application styles*/
 .app {
@@ -187,7 +195,8 @@ html {
       width: 100%;
       border-radius: 10px;
       background-repeat: no-repeat;
-      background-position: center; }
+      background-position: center;
+      margin: 0 0 2px 0; }
     .app .icon-container .icon-text {
       text-align: center;
       font-size: 12px; }
