@@ -173,14 +173,24 @@ html {
           margin: 0; }
         .desktop .window .window-container .btns-container .btn-github {
           margin: 10px 0 30px 0; }
-  .desktop .start-menu {
-    border: solid 1px black;
-    height: 400px;
-    width: 200px;
-    position: absolute;
-    left: 0;
-    bottom: 29px;
-    display: none; }
+
+.story-time-icon {
+  background-image: url(../images/st.png); }
+
+.story-time {
+  background-image: url(../images/st_preview.png); }
+
+.beer-journal-icon {
+  background-image: url(../images/tbj.png); }
+
+.beer-journal {
+  background-image: url(../images/tbj_preview.png); }
+
+.big-day-icon {
+  background-image: url(../images/bd.png); }
+
+.big-day {
+  background-image: url(../images/bd_preview.png); }
 
 /*Application styles*/
 .app {
@@ -201,23 +211,37 @@ html {
       text-align: center;
       font-size: 12px; }
 
-.story-time-icon {
-  background-image: url(../images/st.png); }
-
-.story-time {
-  background-image: url(../images/st_preview.png); }
-
-.beer-journal-icon {
-  background-image: url(../images/tbj.png); }
-
-.beer-journal {
-  background-image: url(../images/tbj_preview.png); }
-
-.big-day-icon {
-  background-image: url(../images/bd.png); }
-
-.big-day {
-  background-image: url(../images/bd_preview.png); }
+.start-menu {
+  border: solid 1px black;
+  height: 162px;
+  width: 200px;
+  position: absolute;
+  left: 0;
+  bottom: 29px;
+  display: none;
+  background-color: #C0C0C0; }
+  .start-menu .start-logo {
+    float: left;
+    width: 30px;
+    background-color: #808080;
+    height: 100%;
+    background-image: url(../images/vertical.png);
+    background-size: contain;
+    background-repeat: no-repeat; }
+  .start-menu .start-menu-items {
+    float: right;
+    height: 100%; }
+    .start-menu .start-menu-items ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      .start-menu .start-menu-items ul li {
+        height: 40px;
+        width: 170px;
+        line-height: 37px; }
+      .start-menu .start-menu-items ul li:hover {
+        color: white;
+        background-color: #000080; }
 
 .hide {
   display: none; }
