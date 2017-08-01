@@ -192,10 +192,28 @@ html {
 .big-day {
   background-image: url(../images/bd_preview.png); }
 
+.picture-game-icon {
+  background-image: url(../images/pg.jpeg); }
+
+.picture-game {
+  background-image: url(../images/pg_preview.png); }
+
+.mole-icon {
+  background-image: url(../images/ttt.png); }
+
+.mole-game {
+  background-image: url(../images/ttt_preview.png); }
+
+.ducks-icon {
+  background-image: url(../images/dw.png); }
+
+.ducks {
+  background-image: url(../images/dw_preview.png); }
+
 /*Application styles*/
 .app {
   padding: 10px 0 0 10px;
-  margin: 0 0 30px 0; }
+  margin: 0 0 40px 0; }
   .app .icon-container {
     width: 60px;
     height: 60px; }
