@@ -59,6 +59,43 @@ render: function(){
     )
 }
 });
+
+var Application = React.createClass({
+showWindow: function(props){
+    console.log("show window");
+    var window = document.getElementsByClassName('window')[0];
+    window.style.display = "block";
+    ReactDOM.render(
+    <AppWindow/>,
+    document.getElementById('window')
+    )
+},
+render: function(){
+    return (
+    <div className="icon-container" onClick={this.showWindow}>
+        <div className={this.props.projectIcon}></div>
+        <div className="icon-text">{this.props.projectTitle}</div>
+    </div>
+    )
+}
+});
+var AppWindow = React.createClass({
+unmountMe: function(){
+    console.log("unmount")
+    ReactDOM.unmountComponentAtNode(
+    document.getElementById('window')
+    )
+    var window = document.getElementsByClassName('window')[0];
+    window.style.display = "none";
+},
+render: function(){
+    return (
+    <div className="application-container">
+        <iframe src="views/tic-tac-toe.html" frameBorder="0"></iframe>
+    </div>
+    )
+}
+});
 //   Render Community Story Time Icon
 ReactDOM.render(
 <App
@@ -132,4 +169,12 @@ projectThumbnail="ducks thumbnail"
 projectCodeLink="https://github.com/GarrettEstrin/didtheduckswin.com"
 projectViewLink="http://didtheduckswin.com"/>,
 document.getElementById('app6')
+)
+
+// Tic Tac Toe
+ReactDOM.render(
+<Application
+projectTitle="Tic-Tac-Toe" 
+projectIcon="icon ttt-icon"/>,
+document.getElementById('app7')
 )
