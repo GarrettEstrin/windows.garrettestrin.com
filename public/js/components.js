@@ -66,7 +66,9 @@ showWindow: function(props){
     var window = document.getElementsByClassName('window')[0];
     window.style.display = "block";
     ReactDOM.render(
-    <AppWindow/>,
+    <AppWindow
+    projectTitle={this.props.projectTitle}
+    />,
     document.getElementById('window')
     )
 },
@@ -90,7 +92,11 @@ unmountMe: function(){
 },
 render: function(){
     return (
-    <div className="application-container">
+    <div className="application-container window-container">
+        <div className="window-title-bar">
+            {this.props.projectTitle}
+            <div className="x" onClick={this.unmountMe}>x</div>
+        </div>
         <iframe src="views/tic-tac-toe.html" frameBorder="0"></iframe>
     </div>
     )
