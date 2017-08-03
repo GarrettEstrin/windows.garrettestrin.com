@@ -8,7 +8,7 @@ body {
 }
 .board {
   margin: 50px auto;
-  width: 76%;
+  width: 302px;
 }
 
 .square {

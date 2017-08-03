@@ -39,3 +39,34 @@ function toggleShow(el){
         element.style.display = "none";
     }
 }
+
+// function to arrange icons based on screen length
+
+function arrangeIcons() {
+    icons = document.getElementsByClassName('app');
+    num_of_icons = icons.length;
+    desktopHeight = window.innerHeight - 28;
+    num_of_columns = Math.round(desktopHeight/(num_of_icons*100));
+    icons_per_col = Math.floor(desktopHeight/100);
+    console.log(icons_per_col);
+    var top = 10;
+    var left = 10;
+    var top_inc = 110;
+    var left_inc = 110;
+    for(var i=0;i<icons.length;i++){
+        if(i%icons_per_col == 0 && i !=0){
+            console.log(i + "end of col")
+            top = 10;
+            left = left + left_inc;
+        }
+        icons[i].style.top = top + "px";
+        top = top + top_inc;
+        icons[i].style.left = left + "px";
+        console.log(icons[i]);
+    }
+}
+
+arrangeIcons();
+window.addEventListener('resize', arrangeIcons);
+
+var app1 = document.getElementById('app1')
