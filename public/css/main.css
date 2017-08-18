@@ -244,15 +244,23 @@ html {
       text-align: center;
       font-size: 12px; }
 
+.start-menu-overlay {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: none; }
+
 .start-menu {
   border: solid 1px black;
-  height: 162px;
-  width: 200px;
+  height: 180px;
+  width: 160px;
   position: absolute;
   left: 0;
   bottom: 29px;
   display: none;
-  background-color: #C0C0C0; }
+  background-color: #C0C0C0;
+  z-index: 2; }
   .start-menu .start-logo {
     float: left;
     width: 30px;
@@ -268,10 +276,17 @@ html {
       list-style: none;
       margin: 0;
       padding: 0; }
-      .start-menu .start-menu-items ul li {
+      .start-menu .start-menu-items ul li div {
+        padding: 5px 0 0 10px;
         height: 40px;
-        width: 170px;
-        line-height: 37px; }
+        width: 120px;
+        line-height: 37px;
+        cursor: pointer; }
+        .start-menu .start-menu-items ul li div p {
+          display: inline;
+          position: relative;
+          bottom: 10px;
+          left: 10px; }
       .start-menu .start-menu-items ul li:hover {
         color: white;
         background-color: #000080; }

@@ -4,6 +4,9 @@
   <head>
     <meta charset="utf-8">
     <title>GarrettEstrin.com</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png?v=v2">
+    <link rel="icon" type="image/png" sizes="96x96" href="./favicon-96x96.png?v=v2">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png?v=v2">
     <script src="js/react.js " charset="utf-8"></script>
     <script src="js/react-dom.js " charset="utf-8"></script>
     <script src="js/browser.min.js" charset="utf-8"></script>
@@ -25,7 +28,7 @@
           <div class="window" id="window"></div>
           <!--start taskbar-->
           <div class="taskbar">
-            <div id="start" class="startRest" onclick="toggleShow('start-menu')">Start</div>
+            <div id="start" class="startRest" onclick="toggleShow('start-menu'), toggleShow('start-menu-overlay')">Start</div>
             <!--start notifications-->
             <div class="notifications">
                 <div class="notification-icon"></div>
@@ -35,17 +38,18 @@
           </div>
           <!--end taskbar-->
           <!--start start menu-->
-          <div class="start-menu" id="start-menu">
-            <div class="start-logo"></div>
-            <div class="start-menu-items">
-              <ul>
-                <li><img src="images/icons/icon_24-0.png" alt="">About</li>
-                <li><img src="images/icons/icon_17-0.png" alt="">Contact</li>
-                <li><img src="images/icons/icon_24-0.png" alt="">About</li>
-                <li><img src="images/icons/icon_17-0.png" alt="">Contact</li>
-              </ul>
+          <div class="start-menu-overlay" id="start-menu-overlay" onclick="toggleShow('start-menu'), toggleShow('start-menu-overlay')"></div>
+            <div class="start-menu" id="start-menu">
+              <div class="start-logo"></div>
+              <div class="start-menu-items">
+                <ul>
+                  <li><div><img src="images/icons/icon_24-0.png" alt=""><p>About</p></div></li>
+                  <li><div><img src="images/icons/icon_17-0.png" alt=""><p>Contact</p></div></li>
+                  <li><div><img src="images/icons/icon_24-0.png" alt=""><p>About</p></div></li>
+                  <li><div><img src="images/icons/icon_17-0.png" alt=""><p>Contact</p></div></li>
+                </ul>
+              </div>
             </div>
-          </div>
           <!--end start menu-->
       </div>
       <!--end desktop-->

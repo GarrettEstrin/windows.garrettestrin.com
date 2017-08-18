@@ -1,14 +1,3 @@
-// right click context menu
-// (function() {
-
-//   "use strict";
-
-//   document.addEventListener( "contextmenu", function(e) {
-//     console.log(e);
-//   });
-
-// })();
-
 // notification clock function
 function startTime() {
     var now = new Date();
@@ -48,25 +37,20 @@ function arrangeIcons() {
     desktopHeight = window.innerHeight - 28;
     num_of_columns = Math.round(desktopHeight/(num_of_icons*100));
     icons_per_col = Math.floor(desktopHeight/100);
-    console.log(icons_per_col);
     var top = 10;
     var left = 10;
     var top_inc = 110;
     var left_inc = 110;
     for(var i=0;i<icons.length;i++){
         if(i%icons_per_col == 0 && i !=0){
-            console.log(i + "end of col")
             top = 10;
             left = left + left_inc;
         }
         icons[i].style.top = top + "px";
         top = top + top_inc;
         icons[i].style.left = left + "px";
-        console.log(icons[i]);
     }
 }
 
 arrangeIcons();
 window.addEventListener('resize', arrangeIcons);
-
-var app1 = document.getElementById('app1')
