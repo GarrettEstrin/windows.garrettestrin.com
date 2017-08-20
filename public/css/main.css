@@ -186,6 +186,8 @@ html {
       .desktop .window .application-container iframe {
         height: 100%;
         width: 100%; }
+    .desktop .window .start-menu-container {
+      height: auto; }
 
 .story-time-icon {
   background-image: url(../images/st.png); }
@@ -254,7 +256,7 @@ html {
 .start-menu {
   border: solid 1px black;
   height: 180px;
-  width: 160px;
+  width: 180px;
   position: absolute;
   left: 0;
   bottom: 29px;
@@ -279,7 +281,7 @@ html {
       .start-menu .start-menu-items ul li div {
         padding: 5px 0 0 10px;
         height: 40px;
-        width: 120px;
+        width: 140px;
         line-height: 37px;
         cursor: pointer; }
         .start-menu .start-menu-items ul li div p {
@@ -290,6 +292,16 @@ html {
       .start-menu .start-menu-items ul li:hover {
         color: white;
         background-color: #000080; }
+
+.contact-content {
+  text-align: center; }
+  .contact-content h3 a {
+    text-decoration: none;
+    color: black;
+    font-size: 35px; }
+  .contact-content h3 img {
+    width: 50px;
+    vertical-align: middle; }
 
 .hide {
   display: none; }

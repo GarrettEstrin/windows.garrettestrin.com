@@ -102,6 +102,59 @@ render: function(){
     )
 }
 });
+var StarMenuItem = React.createClass({
+    showWindow: function(props){
+        console.log("show window");
+        var window = document.getElementsByClassName('window')[0];
+        window.style.display = "block";
+        ReactDOM.render(
+        <StartMenuWindow
+        projectTitle={this.props.label}
+        content={this.props.content}
+        />,
+        document.getElementById('window')
+        )
+        toggleShow('start-menu');
+        toggleShow('start-menu-overlay')
+    },
+    unmountMe: function(){
+        console.log("unmount")
+        ReactDOM.unmountComponentAtNode(
+        document.getElementById('startMenuWindow')
+        )
+        var window = document.getElementsByClassName('window')[0];
+        window.style.display = "none";
+    },
+    render: function(){
+        return (
+            <div onClick={this.showWindow}>
+                <img src={this.props.icon} alt="" /><p>{this.props.label}</p>
+            </div>
+        )
+    }
+});
+var StartMenuWindow = React.createClass({
+    unmountMe: function(){
+        console.log("unmount")
+        ReactDOM.unmountComponentAtNode(
+        document.getElementById('window')
+        )
+        var window = document.getElementsByClassName('window')[0];
+        window.style.display = "none";
+    },
+    render: function(){
+        return (
+        <div className="application-container window-container start-menu-container">
+            <div className="window-title-bar">
+                {this.props.projectTitle}
+                <div className="x" onClick={this.unmountMe}>x</div>
+            </div>
+            <div 
+            dangerouslySetInnerHTML={{__html: this.props.content}} />
+        </div>
+        )
+    }
+});
 //   Render Community Story Time Icon
 ReactDOM.render(
 <App
@@ -183,4 +236,40 @@ ReactDOM.render(
 projectTitle="Tic-Tac-Toe" 
 projectIcon="icon ttt-icon"/>,
 document.getElementById('app7')
+)
+
+// About Start Menu Item
+ReactDOM.render(
+<StarMenuItem
+label="About"
+icon="images/icons/icon_24-0.png"
+content='<div><h4 class="indent"> I am a web developer and former grocery store manager that learned how to lead teams to a shared goal through focusing efforts and recognizing great ideas from any source.  I am passionate about technology, learning and creating and have used these passions to expand on my skills in programming and web development.</h4><h4 class="indent">My degree in professional management taught me to lead and be a part of teams that are comprised of individuals with individual needs and personalities.</h4><h4 class="indent">At WDI, I was taught how to learn the latest and most in-demand programming languages quickly and to implement them efficiently in projects.</h4><h4 class="indent">Web programming started as a hobby for me through building fun, personal websites and exploring what is possible in web programming.  I am ready to turn this hobby into a career that I love.</h4><h4 class="indent">I am currently accepting freelance work in web development.  Please contact me to schedule work.</h4><br/></div>' />,
+document.getElementById('startMenu1')
+)
+
+// Contact Start Menu Item
+ReactDOM.render(
+<StarMenuItem
+label="Contact"
+icon="images/icons/icon_17-0.png" 
+content='<ul class="contact-content"><h3><a href="mailto:contact@garrettestrin.com" target="_top">Email Me!</a> <img src="./images/email-min.png" alt="email icon"></h3><h3><a href="https://github.com/garrettestrin" target="_top">Github</a> <img src="./images/github-min.png" alt="gihub icon"></h3><h3><a href="https://www.linkedin.com/in/garrettestrin" target="_top">LinkedIn</a> <img src="./images/linkedin-min.png" alt="linkedin icon"></h3><h3><a href="https://twitter.com/garrettestrin">Twitter</a><img src="./images/twitter-min.png" alt="twitter icon"></h3></ul>'/>,
+document.getElementById('startMenu2')
+)
+
+// Projects Start Menu Item
+ReactDOM.render(
+<StarMenuItem
+label="Projects"
+icon="images/icons/icon_3-0.png" 
+content=''/>,
+document.getElementById('startMenu3')
+)
+
+// Projects Start Menu Item
+ReactDOM.render(
+<StarMenuItem
+label="Preferences"
+icon="images/icons/icon_22-0.png" 
+content=''/>,
+document.getElementById('startMenu4')
 )

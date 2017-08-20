@@ -9,7 +9,7 @@
 .start-menu {
     border: solid 1px black;
     height: 180px;
-    width: 160px;
+    width: 180px;
     position: absolute;
     left: 0;
     bottom: 29px;
@@ -36,7 +36,7 @@
                 div {
                     padding: 5px 0 0 10px;
                     height: 40px;
-                    width: 120px;
+                    width: 140px;
                     line-height: 37px;
                     cursor: pointer;
                     p {
@@ -51,6 +51,24 @@
                 color: white;
                 background-color: #000080;
             }
+        }
+    }
+}
+
+// About window
+
+// Contact window
+.contact-content {
+    text-align: center;
+    h3 {
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 35px;
+        }
+        img {
+            width: 50px;
+            vertical-align: middle;
         }
     }
 }
