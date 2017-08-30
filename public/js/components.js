@@ -261,7 +261,7 @@ ReactDOM.render(
 <StarMenuItem
 label="Projects"
 icon="images/icons/icon_3-0.png" 
-content=''/>,
+content='<div style="height: 400px; background-color: red;"></div>'/>,
 document.getElementById('startMenu3')
 )
 
@@ -270,6 +270,6 @@ ReactDOM.render(
 <StarMenuItem
 label="Preferences"
 icon="images/icons/icon_22-0.png" 
-content=''/>,
+content='<div class="preferences-content">    <div class="tab">        Background    </div>    <!-- start container -->    <div class="container cf">        <!-- start preview -->        <div class="preview">Preview stuff</div>        <!-- end preview -->        <!-- start selection containter -->        <div class="selection-container">            <!-- start pattern -->            <div class="pattern">Pattern stuff</div>            <!-- end pattern -->            <!-- start wallpaper -->            <div class="wallpaper">Wallpaper stuff</div>            <!-- end wallpaper -->        </div>        <!-- end selection container -->    </div>    <!-- end container --></div>'/>,
 document.getElementById('startMenu4')
 )

@@ -3,3 +3,9 @@
 .hide {
     display: none;
 }
+
+.cf:after {
+    content: "";
+    display: table;
+    clear: both;
+}

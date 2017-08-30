@@ -303,7 +303,44 @@ html {
     width: 50px;
     vertical-align: middle; }
 
+.preferences-content {
+  height: 400px;
+  background-color: #C0C0C0;
+  padding: 10px; }
+  .preferences-content .tab {
+    width: 100px;
+    border-right: outset 1px black;
+    border-top: outset 1px white;
+    border-left: outset 1px white;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    position: relative;
+    left: 3px;
+    text-align: center; }
+  .preferences-content .container {
+    border: solid black 1px;
+    border-bottom: outset 1px black;
+    border-right: outset 1px black;
+    border-top: outset 1px white;
+    border-left: outset 1px white; }
+    .preferences-content .container .preview {
+      margin: 0 auto;
+      width: 75%; }
+    .preferences-content .container .selection-container {
+      width: 100%; }
+      .preferences-content .container .selection-container .pattern {
+        float: left;
+        width: 50%; }
+      .preferences-content .container .selection-container .wallpaper {
+        float: right;
+        width: 50%; }
+
 .hide {
   display: none; }
+
+.cf:after {
+  content: "";
+  display: table;
+  clear: both; }
 
 /*# sourceMappingURL=main.css.map */

@@ -72,3 +72,43 @@
         }
     }
 }
+
+// preferences window
+.preferences-content {
+    height: 400px;
+    background-color: #C0C0C0;
+    padding: 10px;
+    .tab {
+        width: 100px;
+        border-right: outset 1px black;
+        border-top: outset 1px white;
+        border-left: outset 1px white;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        position: relative;
+        left: 3px;
+        text-align: center;
+    }
+    .container {
+        border: solid black 1px;
+        border-bottom: outset 1px black;
+        border-right: outset 1px black;
+        border-top: outset 1px white;
+        border-left: outset 1px white;
+        .preview {
+            margin: 0 auto;
+            width: 75%;
+        }
+        .selection-container {
+            width: 100%;
+            .pattern {
+                float: left;
+                width: 50%;
+            }
+            .wallpaper {
+                float: right;
+                width: 50%;
+            }
+        }
+    }
+}
