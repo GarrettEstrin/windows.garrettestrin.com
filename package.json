@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/GarrettEstrin/windows.garrettestrin.com#readme",
   "dependencies": {
+    "compression": "^1.7.0",
     "ejs": "^2.5.6",
     "express": "^4.15.3",
     "grunt": "^1.0.1",
