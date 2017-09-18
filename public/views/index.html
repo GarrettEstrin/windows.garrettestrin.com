@@ -7,8 +7,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png?v=v2">
     <link rel="icon" type="image/png" sizes="96x96" href="./favicon-96x96.png?v=v2">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png?v=v2">
-    <script src="js/react.min.js " charset="utf-8"></script>
-    <script src="js/react-dom.min.js " charset="utf-8"></script>
+    <script src="js/react.min.js" charset="utf-8"></script>
+    <script src="js/react-dom.min.js" charset="utf-8"></script>
     <script src="js/browser.min.js" charset="utf-8"></script>
 
     <!--CSS-->
@@ -54,7 +54,46 @@
       </div>
       <!--end desktop-->
     <!--JS-->
-    <script type="text/babel" src="js/components.js"></script>
-    <script type="text/javascript" src="js/main.min.js"></script>
+    <!-- <script type="text/babel" src="js/components.js"></script> -->
+    <!-- <script type="text/javascript" src="js/main.min.js"></script> -->
+
+<script>
+  //this function will work cross-browser for loading scripts asynchronously
+  function loadScript(src, type, callback)
+  {
+    var s,
+        r,
+        t;
+    r = false;
+    s = document.createElement('script');
+    s.type = type;
+    s.src = src;
+    s.onload = s.onreadystatechange = function() {
+      //console.log( this.readyState ); //uncomment this line to see which ready states are called.
+      if ( !r && (!this.readyState || this.readyState == 'complete') )
+      {
+        r = true;
+        callback();
+      }
+    };
+    t = document.getElementsByTagName('script')[0];
+    t.parentNode.insertBefore(s, t);
+  }
+  // loadScript('js/react.min.js', 'text/javascript', function(){
+  //   console.log("script loaded");
+  // })
+  // loadScript('js/react-dom.min.js', 'text/javascript', function(){
+  //   console.log("script loaded");
+  // })
+  // loadScript('js/browser.min.js', 'text/javascript', function(){
+  //   console.log("script loaded");
+  // })
+  loadScript('js/main.min.js', 'text/javascript', function(){
+    console.log("script loaded");
+  })
+  loadScript('js/components.js', 'text/babel', function(){
+    console.log("script loaded");
+  })
+</script>
   </body>
 </html>
