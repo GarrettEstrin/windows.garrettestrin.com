@@ -25,5 +25,8 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "morgan": "^1.8.2"
+  },
+  "devDependencies": {
+    "grunt-contrib-cssmin": "^2.2.1"
   }
 }

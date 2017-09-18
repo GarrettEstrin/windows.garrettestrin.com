@@ -4,7 +4,7 @@ module.exports = function(grunt) {
         watch: {
             sass: {
                 files: ['sass/*.scss'],
-                tasks: ['sass:dist']
+                tasks: ['sass:dist', 'cssmin']
             },
             livereload: {
                 files: ['*.html', '*.php', 'js/**/*.{js,json}', 'css/*.css','img/**/*.{png,jpg,jpeg,gif,webp,svg}'],
@@ -22,9 +22,21 @@ module.exports = function(grunt) {
                     // sourcemap: 'true'
                 }
             }
-        }
+        },
+        cssmin: {
+            target: {
+              files: [{
+                expand: true,
+                cwd: 'public/css',
+                src: ['*.css', '!*.min.css'],
+                dest: 'public/css',
+                ext: '.min.css'
+              }]
+            }
+          }
     });
     grunt.registerTask('default', ['watch']);
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 };
