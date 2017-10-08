@@ -51,8 +51,7 @@ function arrangeIcons() {
         icons[i].style.left = left + "px";
     }
 }
-
+// Call arrangeIcons when page is loaded and call it when the page is resized
 arrangeIcons();
 window.addEventListener('resize', arrangeIcons);
 
-document.cookie = "messageToKevin=Dragons aren't as cool as you think!";

@@ -1,3 +1,4 @@
+var Draggable = window.ReactDraggable;
 var App = React.createClass({
 showWindow: function(props){
     console.log("show window");
@@ -18,7 +19,7 @@ render: function(){
     return (
     <div className="icon-container" onClick={this.showWindow}>
         <div className={this.props.projectIcon}></div>
-        <div className="icon-text">{this.props.projectTitle}</div>
+        <div className="icon-text text">{this.props.projectTitle}</div>
     </div>
     )
 }
@@ -32,37 +33,48 @@ unmountMe: function(){
     var window = document.getElementsByClassName('window')[0];
     window.style.display = "none";
 },
+handleDrag: function(e, ui) {
+    const {x, y} = this.state.deltaPosition;
+    this.setState({
+      deltaPosition: {
+        x: x + ui.deltaX,
+        y: y + ui.deltaY,
+      }
+    });
+  },
 render: function(){
+    const dragHandlers = {onStart: this.onStart, onStop: this.onStop};    
     return (
-    <div className="window-container">
-        <div className="window-title-bar">
-        {this.props.projectTitle}
-        <div className="x" onClick={this.unmountMe}>x</div>
+    <Draggable handle=".window-title-bar" {...dragHandlers}>
+        <div className="window-container">
+            <div className="window-title-bar">
+            {this.props.projectTitle}
+            <div className="x" onClick={this.unmountMe}>x</div>
+            </div>
+            <h1>{this.props.projectTitle}</h1>
+            <h5>{this.props.projectSubtitle}</h5> 
+            <div className="window-body"> 
+            <h4>{this.props.projectDescription}</h4>
+            <div className={this.props.projectThumbnail}></div>
+            </div>
+            <div className="btns-container">
+            <a href={this.props.projectViewLink} target="_blank">
+                <button className="btn btn-project">View Project</button>
+            </a>
+            <a href={this.props.projectCodeLink} target="_blank">
+                <button className="btn btn-github">View Project Code</button>
+            </a>
+            <hr />
+            <button className="btn btn-close" onClick={this.unmountMe}>Close</button>
+            </div>
         </div>
-        <h1>{this.props.projectTitle}</h1>
-        <h5>{this.props.projectSubtitle}</h5> 
-        <div className="window-body"> 
-        <h4>{this.props.projectDescription}</h4>
-        <div className={this.props.projectThumbnail}></div>
-        </div>
-        <div className="btns-container">
-        <a href={this.props.projectViewLink} target="_blank">
-            <button className="btn btn-project">View Project</button>
-        </a>
-        <a href={this.props.projectCodeLink} target="_blank">
-            <button className="btn btn-github">View Project Code</button>
-        </a>
-        <hr />
-        <button className="btn btn-close" onClick={this.unmountMe}>Close</button>
-        </div>
-    </div>
+        </Draggable>
     )
 }
 });
 
 var Application = React.createClass({
 showWindow: function(props){
-    console.log("show window");
     var window = document.getElementsByClassName('window')[0];
     window.style.display = "block";
     ReactDOM.render(
@@ -76,31 +88,37 @@ render: function(){
     return (
     <div className="icon-container" onClick={this.showWindow}>
         <div className={this.props.projectIcon}></div>
-        <div className="icon-text">{this.props.projectTitle}</div>
+        <div className="icon-text text">{this.props.projectTitle}</div>
     </div>
     )
 }
 });
 var AppWindow = React.createClass({
-unmountMe: function(){
-    console.log("unmount")
-    ReactDOM.unmountComponentAtNode(
-    document.getElementById('window')
-    )
-    var window = document.getElementsByClassName('window')[0];
-    window.style.display = "none";
-},
-render: function(){
-    return (
-    <div className="application-container window-container">
-        <div className="window-title-bar">
-            {this.props.projectTitle}
-            <div className="x" onClick={this.unmountMe}>x</div>
-        </div>
-        <iframe src="views/tic-tac-toe.html" frameBorder="0"></iframe>
-    </div>
-    )
-}
+    unmountMe: function(){
+        console.log("unmount appwindow")
+        ReactDOM.unmountComponentAtNode(
+        document.getElementById('window')
+        )
+        var window = document.getElementsByClassName('window')[0];
+        window.style.display = "none";
+    },
+    componentDidMount: function() {
+        console.log('mounted');
+    },
+    render: function(){
+        const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
+        return (
+        <Draggable handle=".window-title-bar" {...dragHandlers}>
+            <div className="application-container window-container">
+                <div className="window-title-bar">
+                    {this.props.projectTitle}
+                    <div className="x" onClick={this.unmountMe}>x</div>
+                </div>
+                <iframe src="views/tic-tac-toe.html" frameBorder="0"></iframe>
+            </div>
+        </Draggable>
+        )
+    }
 });
 var StarMenuItem = React.createClass({
     showWindow: function(props){
@@ -128,7 +146,7 @@ var StarMenuItem = React.createClass({
     render: function(){
         return (
             <div onClick={this.showWindow}>
-                <img src={this.props.icon} alt="" /><p>{this.props.label}</p>
+                <img src={this.props.icon} alt="" /><p className="text">{this.props.label}</p>
             </div>
         )
     }
@@ -142,16 +160,28 @@ var StartMenuWindow = React.createClass({
         var window = document.getElementsByClassName('window')[0];
         window.style.display = "none";
     },
+    handleDrag: function(e, ui) {
+        const {x, y} = this.state.deltaPosition;
+        this.setState({
+            deltaPosition: {
+            x: x + ui.deltaX,
+            y: y + ui.deltaY,
+            }
+        });
+    },
     render: function(){
+        const dragHandlers = {onStart: this.onStart, onStop: this.onStop};    
         return (
-        <div className="application-container window-container start-menu-container">
-            <div className="window-title-bar">
-                {this.props.projectTitle}
-                <div className="x" onClick={this.unmountMe}>x</div>
+        <Draggable handle=".window-title-bar" {...dragHandlers}>
+            <div className="application-container window-container start-menu-container">
+                <div className="window-title-bar">
+                    {this.props.projectTitle}
+                    <div className="x" onClick={this.unmountMe}>x</div>
+                </div>
+                <div 
+                dangerouslySetInnerHTML={{__html: this.props.content}} />
             </div>
-            <div 
-            dangerouslySetInnerHTML={{__html: this.props.content}} />
-        </div>
+        </Draggable>
         )
     }
 });
@@ -261,7 +291,7 @@ ReactDOM.render(
 <StarMenuItem
 label="Projects"
 icon="images/icons/icon_3-0.png" 
-content=''/>,
+content='<div style="height: 400px; background-color: red;"></div>'/>,
 document.getElementById('startMenu3')
 )
 
@@ -270,6 +300,6 @@ ReactDOM.render(
 <StarMenuItem
 label="Preferences"
 icon="images/icons/icon_22-0.png" 
-content=''/>,
+content='<div class="preferences-content">    <div class="tab">        Background    </div>    <!-- start container -->    <div class="container cf">        <!-- start preview -->        <div class="preview">Preview stuff</div>        <!-- end preview -->        <!-- start selection containter -->        <div class="selection-container">            <!-- start pattern -->            <div class="pattern">Pattern stuff</div>            <!-- end pattern -->            <!-- start wallpaper -->            <div class="wallpaper">Wallpaper stuff</div>            <!-- end wallpaper -->        </div>        <!-- end selection container -->    </div>    <!-- end container --></div>'/>,
 document.getElementById('startMenu4')
 )
