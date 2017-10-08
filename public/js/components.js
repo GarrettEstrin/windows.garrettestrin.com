@@ -95,12 +95,21 @@ render: function(){
 });
 var AppWindow = React.createClass({
     unmountMe: function(){
-        console.log("unmount appwindow")
+        console.log("unmount")
         ReactDOM.unmountComponentAtNode(
         document.getElementById('window')
         )
         var window = document.getElementsByClassName('window')[0];
         window.style.display = "none";
+    },
+    handleDrag: function(e, ui) {
+        const {x, y} = this.state.deltaPosition;
+        this.setState({
+            deltaPosition: {
+            x: x + ui.deltaX,
+            y: y + ui.deltaY,
+            }
+        });
     },
     componentDidMount: function() {
         console.log('mounted');
