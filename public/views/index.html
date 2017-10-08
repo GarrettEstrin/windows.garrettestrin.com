@@ -7,10 +7,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png?v=v2">
     <link rel="icon" type="image/png" sizes="96x96" href="./favicon-96x96.png?v=v2">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png?v=v2">
-    <script src="js/react.js " charset="utf-8"></script>
-    <script src="js/react-dom.js " charset="utf-8"></script>
-    <script src="js/browser.min.js" charset="utf-8"></script>
-
     <!--CSS-->
     <link rel="stylesheet" href="css/main.css">
 
@@ -30,7 +26,7 @@
           <div class="taskbar">
             <div id="start" class="startRest" onclick="toggleShow('start-menu'), toggleShow('start-menu-overlay')">Start</div>
             <!--start notifications-->
-            <div class="notifications">
+            <div class="notifications text">
                 <div class="notification-icon"></div>
                 <div class="time" id="time" onload="startTime()"></div>
             </div>
@@ -54,6 +50,10 @@
       </div>
       <!--end desktop-->
     <!--JS-->
+    <script type="text/javascript" src="js/react.js " charset="utf-8"></script>
+    <script type="text/javascript" src="js/react-dom.js " charset="utf-8"></script>
+    <script type="text/javascript" src="js/browser.min.js" charset="utf-8"></script>
+    <script text="text/javascript" src="js/reactDraggable.min.js"></script>
     <script type="text/babel" src="js/components.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
   </body>

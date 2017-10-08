@@ -55,5 +55,3 @@ function arrangeIcons() {
 arrangeIcons();
 window.addEventListener('resize', arrangeIcons);
 
-// add cookie for kevin to see
-document.cookie = "messageToKevin=Dragons aren't as cool as you think!";
