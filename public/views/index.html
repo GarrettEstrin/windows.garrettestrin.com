@@ -54,55 +54,11 @@
       </div>
       <!--end desktop-->
     <!--JS-->
-<<<<<<< HEAD
-    <!-- <script type="text/babel" src="js/components.js"></script> -->
-    <!-- <script type="text/javascript" src="js/main.min.js"></script> -->
-
-<script>
-  //this function will work cross-browser for loading scripts asynchronously
-  function loadScript(src, type, callback)
-  {
-    var s,
-        r,
-        t;
-    r = false;
-    s = document.createElement('script');
-    s.type = type;
-    s.src = src;
-    s.onload = s.onreadystatechange = function() {
-      //console.log( this.readyState ); //uncomment this line to see which ready states are called.
-      if ( !r && (!this.readyState || this.readyState == 'complete') )
-      {
-        r = true;
-        callback();
-      }
-    };
-    t = document.getElementsByTagName('script')[0];
-    t.parentNode.insertBefore(s, t);
-  }
-  // loadScript('js/react.min.js', 'text/javascript', function(){
-  //   console.log("script loaded");
-  // })
-  // loadScript('js/react-dom.min.js', 'text/javascript', function(){
-  //   console.log("script loaded");
-  // })
-  // loadScript('js/browser.min.js', 'text/javascript', function(){
-  //   console.log("script loaded");
-  // })
-  loadScript('js/main.min.js', 'text/javascript', function(){
-    console.log("script loaded");
-  })
-  loadScript('js/components.js', 'text/babel', function(){
-    console.log("script loaded");
-  })
-</script>
-=======
     <script type="text/javascript" src="js/react.js " charset="utf-8"></script>
     <script type="text/javascript" src="js/react-dom.js " charset="utf-8"></script>
     <script type="text/javascript" src="js/browser.min.js" charset="utf-8"></script>
     <script text="text/javascript" src="js/reactDraggable.min.js"></script>
     <script type="text/babel" src="js/components.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
->>>>>>> properties-window
   </body>
 </html>
