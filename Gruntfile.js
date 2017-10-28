@@ -4,12 +4,8 @@ module.exports = function(grunt) {
         watch: {
             sass: {
                 files: ['sass/*.scss'],
-                tasks: ['sass:dist', 'cssmin']
+                tasks: ['sass:dist', 'cssmin',]
             },
-            browserSync: {
-                files: ['sass/*.scss', 'js/*.js'],
-                tasks: ['browserSync']
-            }
             // concat: {
             //     files: ['public/js/*.js'],
             //     tasks: ['concat']
@@ -52,7 +48,6 @@ module.exports = function(grunt) {
               },
             my_target: {
               files: {
-                // 'public/js/components.min.js': ['public/js/components.js'],
                 'public/js/main.min.js': ['public/js/main.js'],
                 'public/js/react-dom.min.js': ['public/js/react-dom.js'],
                 'public/js/react.min.js': ['public/js/react.js'],
@@ -66,12 +61,13 @@ module.exports = function(grunt) {
                 src: 'public/**/*.{js,css}'
               },
               options: {
-                proxy: 'localhost:3000'
+                proxy: 'localhost:3000',
+                watchTask: true
               }
             }
           }
     });
-    grunt.registerTask('default', ['watch', 'browserSync']);
+    grunt.registerTask('default', ['browserSync', 'watch']);
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
