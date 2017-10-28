@@ -6,20 +6,18 @@ module.exports = function(grunt) {
                 files: ['sass/*.scss'],
                 tasks: ['sass:dist', 'cssmin']
             },
-            livereload: {
-                files: ['*.html', '*.php', 'js/**/*.{js,json}', 'css/*.css','img/**/*.{png,jpg,jpeg,gif,webp,svg}'],
-                options: {
-                    livereload: true
-                }
-            },
+            browserSync: {
+                files: ['sass/*.scss', 'js/*.js'],
+                tasks: ['browserSync']
+            }
             // concat: {
             //     files: ['public/js/*.js'],
             //     tasks: ['concat']
             // }
-            uglify: {
-                files: ['public/js/*.js'],
-                tasks: ['uglify']
-            }
+            // uglify: {
+            //     files: ['public/js/*.js'],
+            //     tasks: ['uglify']
+            // }
         },
         sass: {
             dist: {
@@ -61,12 +59,23 @@ module.exports = function(grunt) {
                 'public/js/browser.min.js': ['public/js/browser.min.js'],
               }
             }
+          },
+          browserSync: {
+            dev: {
+              bsFiles: {
+                src: 'public/**/*.{js,css}'
+              },
+              options: {
+                proxy: 'localhost:3000'
+              }
+            }
           }
     });
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', ['watch', 'browserSync']);
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-browser-sync');
 };
