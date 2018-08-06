@@ -75,8 +75,7 @@ html {
     left: 0;
     top: 0;
     bottom: 0;
-    overflow: hidden;
-    display: none; }
+    overflow: hidden; }
     .desktop .window .window-container {
       height: 400px;
       width: 600px;
@@ -252,6 +251,9 @@ html {
     .app .icon-container .icon-text {
       text-align: center;
       font-size: 12px; }
+
+.window-about {
+  padding: 0 20px; }
 
 .start-menu-overlay {
   height: 100%;

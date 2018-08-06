@@ -282,7 +282,7 @@ ReactDOM.render(
 <StarMenuItem
 label="About"
 icon="images/icons/icon_24-0.png"
-content='<div><h4 class="indent"> I am a web developer and former grocery store manager that learned how to lead teams to a shared goal through focusing efforts and recognizing great ideas from any source.  I am passionate about technology, learning and creating and have used these passions to expand on my skills in programming and web development.</h4><h4 class="indent">My degree in professional management taught me to lead and be a part of teams that are comprised of individuals with individual needs and personalities.</h4><h4 class="indent">At WDI, I was taught how to learn the latest and most in-demand programming languages quickly and to implement them efficiently in projects.</h4><h4 class="indent">Web programming started as a hobby for me through building fun, personal websites and exploring what is possible in web programming.  I am ready to turn this hobby into a career that I love.</h4><h4 class="indent">I am currently accepting freelance work in web development.  Please contact me to schedule work.</h4><br/></div>' />,
+content='<div class="window-about"><h4 class="indent">I am a self-motivated and educated web developer. My experience building full-stack web applications in JavaScript, PHP and Ruby allows me to work on all aspects of projects and be productive when working on projects that are built in a team environment. In addition to my web development skills, my management experience allows me to be a leader or productive team member when it is needed.</div>' />,
 document.getElementById('startMenu1')
 )
 
@@ -300,7 +300,14 @@ ReactDOM.render(
 <StarMenuItem
 label="Projects"
 icon="images/icons/icon_3-0.png" 
-content='<div style="height: 400px; background-color: red;"></div>'/>,
+content='<div style="    
+  height: 400px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;"
+>Feature Coming Soon</div>'/>,
 document.getElementById('startMenu3')
 )
 
@@ -309,6 +316,34 @@ ReactDOM.render(
 <StarMenuItem
 label="Preferences"
 icon="images/icons/icon_22-0.png" 
-content='<div class="preferences-content">    <div class="tab">        Background    </div>    <!-- start container -->    <div class="container cf">        <!-- start preview -->        <div class="preview">Preview stuff</div>        <!-- end preview -->        <!-- start selection containter -->        <div class="selection-container">            <!-- start pattern -->            <div class="pattern">Pattern stuff</div>            <!-- end pattern -->            <!-- start wallpaper -->            <div class="wallpaper">Wallpaper stuff</div>            <!-- end wallpaper -->        </div>        <!-- end selection container -->    </div>    <!-- end container --></div>'/>,
+content='
+<div style="    
+  height: 400px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;"
+>
+  Feature Coming Soon
+</div>'/>,
 document.getElementById('startMenu4')
 )
+
+ReactDOM.render(
+  <StartMenuWindow
+    projectTitle={"Welcome to GarrettEstin.com"}
+    content={`
+    <div class="window-about" style="margin: 20px 0">This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front end Javascript Framework as well as front end development tools such as Grunt and Sass.</div>
+    <img src="images/logo.png"
+      style="    
+        width: 80%;
+        margin: 20px auto;
+        display: block;
+      "
+    ">
+    `}
+  />, 
+  document.getElementById('window'))
+
+
