@@ -377,7 +377,7 @@ document.getElementById('startMenu4')
 ReactDOM.render(
   <StarMenuItem
   label="Welcome"
-  icon="images/icons/icon_22-0.png" 
+  icon="images/icons/icon_60-0.png" 
   content='welcome'/>,
   document.getElementById('startMenu5')
   )
