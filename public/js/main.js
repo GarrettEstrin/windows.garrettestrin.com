@@ -55,3 +55,11 @@ function arrangeIcons() {
 arrangeIcons();
 window.addEventListener('resize', arrangeIcons);
 
+function startUp() {
+  var audio = new Audio('audio/windows-95-startup.mp3');
+  audio.play();
+  document.getElementById('jsStartUpImage').classList.add('fade-in');
+}
+
+startUp();
+

@@ -74,7 +74,7 @@ render: function(){
 });
 
 var Application = React.createClass({
-showWindow: function(props){
+showWindow: function(){
     var window = document.getElementsByClassName('window')[0];
     window.style.display = "block";
     ReactDOM.render(
@@ -145,7 +145,6 @@ var StarMenuItem = React.createClass({
         toggleShow('start-menu-overlay')
     },
     unmountMe: function(){
-        console.log("unmount")
         ReactDOM.unmountComponentAtNode(
         document.getElementById('startMenuWindow')
         )
@@ -157,6 +156,41 @@ var StarMenuItem = React.createClass({
             <div onClick={this.showWindow}>
                 <img src={this.props.icon} alt="" /><p className="text">{this.props.label}</p>
             </div>
+        )
+    }
+});
+var StartMenuWindow = React.createClass({
+    unmountMe: function(){
+        console.log("unmount")
+        ReactDOM.unmountComponentAtNode(
+        document.getElementById('window')
+        )
+        var window = document.getElementsByClassName('window')[0];
+        window.style.display = "none";
+    },
+    handleDrag: function(e, ui) {
+        const {x, y} = this.state.deltaPosition;
+        this.setState({
+            deltaPosition: {
+            x: x + ui.deltaX,
+            y: y + ui.deltaY,
+            }
+        });
+    },
+    render: function(){
+        const dragHandlers = {onStart: this.onStart, onStop: this.onStop};    
+        return (
+        <Draggable handle=".window-title-bar" {...dragHandlers}>
+            <div className="application-container window-container start-menu-container">
+                <div className="window-title-bar">
+                    {this.props.projectTitle}
+                    <div className="x" onClick={this.unmountMe}>x</div>
+                </div>
+                <div 
+                  dangerouslySetInnerHTML={{__html: this.props.content}} 
+                />
+            </div>
+        </Draggable>
         )
     }
 });
@@ -330,21 +364,23 @@ content='
 document.getElementById('startMenu4')
 )
 
-ReactDOM.render(
-  <StartMenuWindow
-    projectTitle={"Welcome to GarrettEstin.com"}
-    content={`
-    <div class="window-about" style="margin: 20px 0"><p style="margin: 0;" id="jsWelcomeMessage">This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front end Javascript Framework as well as front end development tools such as Grunt and Sass.</p></div>
-    <img src="images/logo.png"
-      style="    
-        width: 80%;
-        margin: 20px auto;
-        display: block;
-      "
-    ">
-    `}
-  />, 
-  document.getElementById('window'));
+function showStartUpMessage(message){
+  ReactDOM.render(
+    <StartMenuWindow
+      projectTitle={"Welcome to GarrettEstin.com"}
+      content={`
+      <div class="window-about" style="margin: 20px 0"><p style="margin: 0;" id="jsWelcomeMessage">${message}</p></div>
+      <img src="images/logo.png"
+        style="    
+          width: 80%;
+          margin: 20px auto;
+          display: block;
+        "
+      ">
+      `}
+    />, 
+    document.getElementById('window'));
+}
 
 
   function getUrlParameter(name) {
@@ -370,13 +406,26 @@ function parseDataFromSpreadSheetAndFindSpecificMessage(data){
   var affiliateCode = getUrlParameter('a');
   for(var i = 0, a = data, c = a.length;i<c;i++){
     if(a[i].gsx$a.$t == affiliateCode){
-      replaceDefaultMessageWithCustomMessageFromSpreadSheet(a[i].gsx$message.$t); 
+      var message = a[i].gsx$message.$t;
+      fadeOut(document.getElementById('jsStartUp'));
+      setTimeout(function(){showStartUpMessage(message);}, 2500)
+    } else {
+      var message = "This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front end Javascript Framework as well as front end development tools such as Grunt and Sass.";
+      fadeOut(document.getElementById('jsStartUp'));
+      setTimeout(function(){showStartUpMessage(message)}, 2500)
     }
   }
 }
 
-function replaceDefaultMessageWithCustomMessageFromSpreadSheet(message){
-  document.getElementById('jsWelcomeMessage').innerText = message;
+function fadeOut(el){
+  el.style.opacity = 1;
+  (function fade() {
+    if ((el.style.opacity -= .00699) < 0) {
+      el.style.display = "none";
+    } else {
+      requestAnimationFrame(fade);
+    }
+  })();
 }
 
 getDataFromSpreadsheet();
