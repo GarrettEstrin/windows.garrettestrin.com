@@ -334,7 +334,7 @@ ReactDOM.render(
   <StartMenuWindow
     projectTitle={"Welcome to GarrettEstin.com"}
     content={`
-    <div class="window-about" style="margin: 20px 0">This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front end Javascript Framework as well as front end development tools such as Grunt and Sass.</div>
+    <div class="window-about" style="margin: 20px 0"><p style="margin: 0;" id="jsWelcomeMessage">This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front end Javascript Framework as well as front end development tools such as Grunt and Sass.</p></div>
     <img src="images/logo.png"
       style="    
         width: 80%;
@@ -344,6 +344,40 @@ ReactDOM.render(
     ">
     `}
   />, 
-  document.getElementById('window'))
+  document.getElementById('window'));
 
+
+  function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+
+function getDataFromSpreadsheet() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var data = JSON.parse(this.response).feed.entry;
+      parseDataFromSpreadSheetAndFindSpecificMessage(data);
+    }
+  };
+  xhttp.open("GET", "https://spreadsheets.google.com/feeds/list/1l7ovaYTY2TvZ8zUHldG90RNltrlI3TVaje1OwXrjXR0/od6/public/values?alt=json", true);
+  xhttp.send();
+}
+
+function parseDataFromSpreadSheetAndFindSpecificMessage(data){
+  var affiliateCode = getUrlParameter('a');
+  for(var i = 0, a = data, c = a.length;i<c;i++){
+    if(a[i].gsx$a.$t == affiliateCode){
+      replaceDefaultMessageWithCustomMessageFromSpreadSheet(a[i].gsx$message.$t); 
+    }
+  }
+}
+
+function replaceDefaultMessageWithCustomMessageFromSpreadSheet(message){
+  document.getElementById('jsWelcomeMessage').innerText = message;
+}
+
+getDataFromSpreadsheet();
 
