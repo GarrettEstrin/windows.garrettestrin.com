@@ -263,14 +263,14 @@ html {
   display: none; }
 
 .start-menu {
-  border: solid 1px black;
-  height: 180px;
+  border: solid 1px #000;
+  height: 225px;
   width: 180px;
   position: absolute;
   left: 0;
-  bottom: 29px;
+  bottom: 28px;
   display: none;
-  background-color: #C0C0C0;
+  background-color: silver;
   z-index: 2; }
   .start-menu .start-logo {
     float: left;

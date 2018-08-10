@@ -1,7 +1,7 @@
 var Draggable = window.ReactDraggable;
+var globalMessage;
 var App = React.createClass({
 showWindow: function(props){
-    console.log("show window");
     var window = document.getElementsByClassName('window')[0];
     window.style.display = "block";
     ReactDOM.render(
@@ -26,7 +26,6 @@ render: function(){
 });
 var Window = React.createClass({
 unmountMe: function(){
-    console.log("unmount")
     ReactDOM.unmountComponentAtNode(
     document.getElementById('window')
     )
@@ -95,7 +94,6 @@ render: function(){
 });
 var AppWindow = React.createClass({
     unmountMe: function(){
-        console.log("unmount")
         ReactDOM.unmountComponentAtNode(
         document.getElementById('window')
         )
@@ -112,7 +110,6 @@ var AppWindow = React.createClass({
         });
     },
     componentDidMount: function() {
-        console.log('mounted');
     },
     render: function(){
         const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
@@ -130,14 +127,29 @@ var AppWindow = React.createClass({
     }
 });
 var StarMenuItem = React.createClass({
-    showWindow: function(props){
-        console.log("show window");
+    showWindow: function(){
         var window = document.getElementsByClassName('window')[0];
         window.style.display = "block";
+        if(this.props.content == "welcome"){
+          var label = "Welcome to GarrettEstrin.com"
+          var content = `
+          <div class="window-about" style="margin: 20px 0"><p style="margin: 0;" id="jsWelcomeMessage">${globalMessage}</p></div>
+          <img src="images/logo.png"
+            style="    
+              width: 80%;
+              margin: 20px auto;
+              display: block;
+            "
+          ">
+          `;
+        } else {
+          var label = this.props.label;
+          var content = this.props.content;
+        }
         ReactDOM.render(
         <StartMenuWindow
-        projectTitle={this.props.label}
-        content={this.props.content}
+        projectTitle={label}
+        content={content}
         />,
         document.getElementById('window')
         )
@@ -161,7 +173,6 @@ var StarMenuItem = React.createClass({
 });
 var StartMenuWindow = React.createClass({
     unmountMe: function(){
-        console.log("unmount")
         ReactDOM.unmountComponentAtNode(
         document.getElementById('window')
         )
@@ -196,7 +207,6 @@ var StartMenuWindow = React.createClass({
 });
 var StartMenuWindow = React.createClass({
     unmountMe: function(){
-        console.log("unmount")
         ReactDOM.unmountComponentAtNode(
         document.getElementById('window')
         )
@@ -363,11 +373,19 @@ content='
 </div>'/>,
 document.getElementById('startMenu4')
 )
+// Projects Start Menu Item
+ReactDOM.render(
+  <StarMenuItem
+  label="Welcome"
+  icon="images/icons/icon_22-0.png" 
+  content='welcome'/>,
+  document.getElementById('startMenu5')
+  )
 
 function showStartUpMessage(message){
   ReactDOM.render(
     <StartMenuWindow
-      projectTitle={"Welcome to GarrettEstin.com"}
+      projectTitle={"Welcome to GarrettEstrin.com"}
       content={`
       <div class="window-about" style="margin: 20px 0"><p style="margin: 0;" id="jsWelcomeMessage">${message}</p></div>
       <img src="images/logo.png"
@@ -407,13 +425,14 @@ function parseDataFromSpreadSheetAndFindSpecificMessage(data){
   for(var i = 0, a = data, c = a.length;i<c;i++){
     if(a[i].gsx$a.$t == affiliateCode){
       var message = a[i].gsx$message.$t;
+      globalMessage = message;
       fadeOut(document.getElementById('jsStartUp'));
-      setTimeout(function(){showStartUpMessage(message);}, 2500)
-    } else {
-      var message = "This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front end Javascript Framework as well as front end development tools such as Grunt and Sass.";
-      fadeOut(document.getElementById('jsStartUp'));
-      setTimeout(function(){showStartUpMessage(message)}, 2500)
+      return setTimeout(function(){showStartUpMessage(message);}, 2500)
     }
+    var message = "This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front end Javascript Framework as well as front end development tools such as Grunt and Sass.";
+    globalMessage = message;
+    fadeOut(document.getElementById('jsStartUp'));
+    setTimeout(function(){showStartUpMessage(message)}, 2500)
   }
 }
 
