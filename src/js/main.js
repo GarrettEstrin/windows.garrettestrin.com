@@ -32,11 +32,11 @@ function toggleShow(el){
 // function to arrange icons based on screen length
 
 function arrangeIcons() {
-    icons = document.getElementsByClassName('app');
-    num_of_icons = icons.length;
-    desktopHeight = window.innerHeight - 28;
-    num_of_columns = Math.round(desktopHeight/(num_of_icons*100));
-    icons_per_col = Math.floor(desktopHeight/100);
+    const icons = document.getElementsByClassName('app');
+    const num_of_icons = icons.length;
+    const desktopHeight = window.innerHeight - 28;
+    const num_of_columns = Math.round(desktopHeight/(num_of_icons*100));
+    const icons_per_col = Math.floor(desktopHeight/100);
     var top = 10;
     var left = 10;
     var top_inc = 110;
@@ -51,8 +51,10 @@ function arrangeIcons() {
         icons[i].style.left = left + "px";
     }
 }
+// Make arrangeIcons globally available
+window.arrangeIcons = arrangeIcons;
+window.toggleShow = toggleShow;
 // Call arrangeIcons when page is loaded and call it when the page is resized
-arrangeIcons();
 window.addEventListener('resize', arrangeIcons);
 
 function startUp() {

@@ -34,7 +34,7 @@ module.exports = env => {
     entry: entry,
 
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname + '/public', 'dist'),
       filename: 'js/[name].js'
     },
 
@@ -176,7 +176,7 @@ module.exports = env => {
     },
     optimization: {
       splitChunks: {
-        chunks: "all"
+        //chunks: "all"
       }
     },
     plugins: plugins,

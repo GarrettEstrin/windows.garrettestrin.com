@@ -1,9 +1,10 @@
-import React from 'React';
-import ReactDOM from 'React-DOM';
+const React = require('react'),
+  ReactDOM = require('react-dom'),
+  Draggable = require('react-draggable'),
+  createClass = require('create-react-class')
 
-var Draggable = window.ReactDraggable;
 var globalMessage;
-var App = React.createClass({
+var App = createClass({
 showWindow: function(props){
     var window = document.getElementsByClassName('window')[0];
     window.style.display = "block";
@@ -27,7 +28,7 @@ render: function(){
     )
 }
 });
-var Window = React.createClass({
+var Window = createClass({
 unmountMe: function(){
     ReactDOM.unmountComponentAtNode(
     document.getElementById('window')
@@ -75,7 +76,7 @@ render: function(){
 }
 });
 
-var Application = React.createClass({
+var Application = createClass({
 showWindow: function(){
     var window = document.getElementsByClassName('window')[0];
     window.style.display = "block";
@@ -95,7 +96,7 @@ render: function(){
     )
 }
 });
-var AppWindow = React.createClass({
+var AppWindow = createClass({
     unmountMe: function(){
         ReactDOM.unmountComponentAtNode(
         document.getElementById('window')
@@ -129,7 +130,7 @@ var AppWindow = React.createClass({
         )
     }
 });
-var StarMenuItem = React.createClass({
+var StarMenuItem = createClass({
     showWindow: function(){
         var window = document.getElementsByClassName('window')[0];
         window.style.display = "block";
@@ -174,7 +175,7 @@ var StarMenuItem = React.createClass({
         )
     }
 });
-var StartMenuWindow = React.createClass({
+var StartMenuWindow = createClass({
     unmountMe: function(){
         ReactDOM.unmountComponentAtNode(
         document.getElementById('window')
@@ -208,7 +209,7 @@ var StartMenuWindow = React.createClass({
         )
     }
 });
-var StartMenuWindow = React.createClass({
+var StartMenuWindow = createClass({
     unmountMe: function(){
         ReactDOM.unmountComponentAtNode(
         document.getElementById('window')
@@ -436,13 +437,13 @@ function parseDataFromSpreadSheetAndFindSpecificMessage(data){
       }, 3000)
       setTimeout(function(){
         renderDesktopIcons();
+        window.arrangeIcons();
       }, 4500)
       setTimeout(function(){
         showStartUpMessage(message);
       }, 5500)
         return;
     }
-    console.log()
     var message = "This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front end Javascript Framework as well as front end development tools such as Grunt and Sass.";
     globalMessage = message;
     setTimeout(function(){
@@ -450,6 +451,7 @@ function parseDataFromSpreadSheetAndFindSpecificMessage(data){
     }, 3000)
     setTimeout(function(){
       renderDesktopIcons();
+      window.arrangeIcons();
     }, 4500)
     setTimeout(function(){
       showStartUpMessage(message);
