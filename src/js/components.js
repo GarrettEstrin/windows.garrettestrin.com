@@ -444,7 +444,7 @@ function parseDataFromSpreadSheetAndFindSpecificMessage(data){
       }, 5500)
         return;
     }
-    var message = "This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front end Javascript Framework as well as front end development tools such as Grunt and Sass.";
+    var message = "This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front-end Javascript Framework as well as front-end development tools such as Webpack and Sass.";
     globalMessage = message;
     setTimeout(function(){
       fadeOut(document.getElementById('jsStartUp'));
