@@ -7,7 +7,7 @@
   "description": "Personal portfolio site in the theme of Windows 95.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js & cross-env webpack --progress --env.dev --config webpack.config.babel.js",
+    "s": "node server.js & cross-env webpack --progress --env.dev --config webpack.config.babel.js",
     "prebuild:prod": "npm-run-all --parallel clean sprites",
     "lint:autofix": "stylefmt -c .stylelintrc -r src/scss/**/*.scss && eslint src/js --fix",
     "postinstall": "del-cli node_modules/**/*.info"
