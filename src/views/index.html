@@ -1,0 +1,68 @@
+<!-- Custom HTML by Garrett Estrin | GarrettEstrin.com -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GarrettEstrin.com</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png?v=v2">
+    <link rel="icon" type="image/png" sizes="96x96" href="./favicon-96x96.png?v=v2">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png?v=v2">
+    <script src="js/react.min.js" charset="utf-8"></script>
+    <script src="js/react-dom.min.js" charset="utf-8"></script>
+    <script src="js/browser.min.js" charset="utf-8"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="css/main.min.css">
+
+  </head>
+  <body id="body">
+      <div class="startup" id="jsStartUp">
+        <img src="/images/startup.png" id="jsStartUpImage">
+      </div>
+      <!--start desktop-->
+      <div class="desktop">
+          <div id="app1" class="app"></div>
+          <div id="app2" class="app"></div>
+          <div id="app3" class="app"></div>
+          <div class="app" id="app4"></div>
+          <div class="app" id="app5"></div>
+          <div class="app" id="app6"></div>
+          <div class="app" id="app7"></div>
+          <div class="window" id="window"></div>
+          <!--start taskbar-->
+          <div class="taskbar">
+            <div id="start" class="startRest" onclick="toggleShow('start-menu'), toggleShow('start-menu-overlay')">Start</div>
+            <!--start notifications-->
+            <div class="notifications text">
+                <div class="notification-icon"></div>
+                <div class="time" id="time" onload="startTime()"></div>
+            </div>
+            <!--end notifications-->
+          </div>
+          <!--end taskbar-->
+          <!--start start menu-->
+          <div class="start-menu-overlay" id="start-menu-overlay" onclick="toggleShow('start-menu'), toggleShow('start-menu-overlay')"></div>
+            <div class="start-menu" id="start-menu">
+              <div class="start-logo"></div>
+              <div class="start-menu-items">
+                <ul>
+                  <li id="startMenu1"></li>
+                  <li id="startMenu2"></li>
+                  <li id="startMenu3"></li>
+                  <li id="startMenu4"></li>
+                  <li id="startMenu5"></li>
+                </ul>
+              </div>
+            </div>
+          <!--end start menu-->
+      </div>
+      <!--end desktop-->
+    <!--JS-->
+    <script type="text/javascript" src="js/react.js " charset="utf-8"></script>
+    <script type="text/javascript" src="js/react-dom.js " charset="utf-8"></script>
+    <script type="text/javascript" src="js/browser.min.js" charset="utf-8"></script>
+    <script text="text/javascript" src="js/reactDraggable.min.js"></script>
+    <script type="text/babel" src="js/components.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
