@@ -433,12 +433,12 @@ function parseDataFromSpreadSheetAndFindSpecificMessage(data){
       var message = a[i].gsx$message.$t;
       globalMessage = message;
       setTimeout(function(){
-        fadeOut(document.getElementById('jsStartUp'));
+        document.getElementById('jsStartUp').classList.add('fade-out');
       }, 3000)
       setTimeout(function(){
         renderDesktopIcons();
         window.arrangeIcons();
-      }, 4500)
+      }, 5000)
       setTimeout(function(){
         showStartUpMessage(message);
       }, 5500)
@@ -447,7 +447,7 @@ function parseDataFromSpreadSheetAndFindSpecificMessage(data){
     var message = "This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front-end Javascript Framework as well as front-end development tools such as Webpack and Sass.";
     globalMessage = message;
     setTimeout(function(){
-      fadeOut(document.getElementById('jsStartUp'));
+      document.getElementById('jsStartUp').classList.add('fade-out');
     }, 3000)
     setTimeout(function(){
       renderDesktopIcons();
