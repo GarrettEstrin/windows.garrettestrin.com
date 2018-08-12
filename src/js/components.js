@@ -432,33 +432,27 @@ function parseDataFromSpreadSheetAndFindSpecificMessage(data){
     if(a[i].gsx$a.$t == affiliateCode){
       var message = a[i].gsx$message.$t;
       globalMessage = message;
-      setTimeout(function(){
-        document.getElementById('jsStartUp').classList.add('fade-out');
-      }, 3000)
-      setTimeout(function(){
-        renderDesktopIcons();
-        window.arrangeIcons();
-      }, 5000)
-      setTimeout(function(){
-        showStartUpMessage(message);
-      }, 5500)
+        completeStartup(message);
         return;
     }
     var message = "This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front-end Javascript Framework as well as front-end development tools such as Webpack and Sass.";
     globalMessage = message;
-    setTimeout(function(){
-      document.getElementById('jsStartUp').classList.add('fade-out');
-    }, 3000)
-    setTimeout(function(){
-      renderDesktopIcons();
-      window.arrangeIcons();
-    }, 4500)
-    setTimeout(function(){
-      showStartUpMessage(message);
-    }, 5500)
+    completeStartup(message);
   }
 }
-
+function completeStartup(message){
+  setTimeout(function(){
+    document.getElementById('jsStartUp').classList.add('fade-out');
+  }, 3000)
+  setTimeout(function(){
+    document.getElementById('jsStartUp').classList.add('display--none');
+    renderDesktopIcons();
+    window.arrangeIcons();
+  }, 5000)
+  setTimeout(function(){
+    showStartUpMessage(message);
+  }, 5500)
+}
 function fadeOut(el){
   el.style.opacity = 1;
   (function fade() {

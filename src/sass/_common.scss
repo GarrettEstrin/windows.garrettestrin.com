@@ -45,7 +45,6 @@
 @keyframes fadeOut {
   to {
     opacity: 0;
-    display: none;
   }
 }
 
@@ -56,5 +55,9 @@
 
 .fade-out {
   animation: fadeOut 2s ease-in 1 forwards;
+}
+
+.display--none {
+  display: none;
 }
 
