@@ -13,7 +13,7 @@ class TaskBar extends Component {
   render(){
     return (
       <div class="taskbar">
-        <div id="start" class="startRest" onclick="window.toggleShow('start-menu'), window.toggleShow('start-menu-overlay')">Start</div>
+        <div id="start" class="startRest" onClick={() => this.props.handleClick()}>Start</div>
         <div class="notifications text">
             <div class="notification-icon"></div>
             <div class="time" id="time" onload="startTime()"></div>

@@ -2,18 +2,26 @@ import React, { Component } from 'react';
 import App from './app';
 import Application from './application';
 import TaskBar from './taskbar';
+import StartMenu from './startMenu';
 
 import AppProps from '../initializers/appProps';
 
 class Desktop extends Component{
   constructor(props){
     super(props);
-
+    this.state = {
+      showStartMenu: false
+    }
     this.buildDesktopIcons = this.buildDesktopIcons.bind(this);
+    this.handleStartClick = this.handleStartClick.bind(this);
   }
 
   componentDidMount(){
     arrangeIcons();
+  }
+
+  handleStartClick(){
+    this.setState({ showStartMenu: !this.state.showStartMenu })
   }
 
   buildDesktopIcons(){
@@ -41,7 +49,8 @@ class Desktop extends Component{
           projectIcon="icon ttt-icon"
         />
         <div class="window" id="window"></div>
-        <TaskBar />
+        <TaskBar handleClick={this.handleStartClick}/>
+        {this.state.showStartMenu ? <StartMenu /> : null}
       </div>
     )
   }

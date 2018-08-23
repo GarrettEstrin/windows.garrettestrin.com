@@ -4,6 +4,5 @@ import './sass/style.scss';
 //js
 import './js/app.js';
 // import './js/components.js';
-// import './js/main.js';
 
 
