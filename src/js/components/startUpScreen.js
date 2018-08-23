@@ -8,6 +8,8 @@ class StartUpScreen extends Component {
   }
 
   componentDidMount() {
+    var audio = new Audio('audio/windows-95-startup.mp3');
+    audio.play();
     setTimeout(
       function() {
           this.setState({fadeStartup: true});

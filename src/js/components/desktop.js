@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import App from './app';
 import Application from './application';
+import TaskBar from './taskbar';
 
 import AppProps from '../initializers/appProps';
 
@@ -39,6 +40,8 @@ class Desktop extends Component{
           projectTitle="Tic-Tac-Toe" 
           projectIcon="icon ttt-icon"
         />
+        <div class="window" id="window"></div>
+        <TaskBar />
       </div>
     )
   }
