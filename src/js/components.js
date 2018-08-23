@@ -4,30 +4,7 @@ const React = require('react'),
   createClass = require('create-react-class')
 
 var globalMessage;
-export const App = createClass({
-showWindow: function(props){
-    var window = document.getElementsByClassName('window')[0];
-    window.style.display = "block";
-    // ReactDOM.render(
-    // <Window 
-    // projectTitle={this.props.projectTitle}
-    // projectSubtitle={this.props.projectSubtitle}
-    // projectDescription={this.props.projectDescription}
-    // projectThumbnail={this.props.projectThumbnail}
-    // projectCodeLink={this.props.projectCodeLink}
-    // projectViewLink={this.props.projectViewLink}/>,
-    // document.getElementById('window')
-    // )
-},
-render: function(){
-    return (
-    <div className="icon-container" onClick={this.showWindow}>
-        <div className={this.props.projectIcon}></div>
-        <div className="icon-text text">{this.props.projectTitle}</div>
-    </div>
-    )
-}
-});
+
 var Window = createClass({
 unmountMe: function(){
     ReactDOM.unmountComponentAtNode(
@@ -76,26 +53,6 @@ render: function(){
 }
 });
 
-export const Application = createClass({
-showWindow: function(){
-    var window = document.getElementsByClassName('window')[0];
-    window.style.display = "block";
-    ReactDOM.render(
-    <AppWindow
-    projectTitle={this.props.projectTitle}
-    />,
-    document.getElementById('window')
-    )
-},
-render: function(){
-    return (
-    <div className="icon-container" onClick={this.showWindow}>
-        <div className={this.props.projectIcon}></div>
-        <div className="icon-text text">{this.props.projectTitle}</div>
-    </div>
-    )
-}
-});
 var AppWindow = createClass({
     unmountMe: function(){
         ReactDOM.unmountComponentAtNode(
