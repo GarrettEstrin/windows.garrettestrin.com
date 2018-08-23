@@ -1,10 +1,3 @@
-const React = require('react'),
-  ReactDOM = require('react-dom'),
-  Draggable = require('react-draggable'),
-  createClass = require('create-react-class')
-
-var globalMessage;
-
 var Window = createClass({
 unmountMe: function(){
     ReactDOM.unmountComponentAtNode(
@@ -87,51 +80,6 @@ var AppWindow = createClass({
         )
     }
 });
-var StarMenuItem = createClass({
-    showWindow: function(){
-        var window = document.getElementsByClassName('window')[0];
-        window.style.display = "block";
-        if(this.props.content == "welcome"){
-          var label = "Welcome to GarrettEstrin.com"
-          var content = `
-          <div class="window-about" style="margin: 20px 0"><p style="margin: 0;" id="jsWelcomeMessage">${globalMessage}</p></div>
-          <img src="images/logo.png"
-            style="    
-              width: 80%;
-              margin: 20px auto;
-              display: block;
-            "
-          ">
-          `;
-        } else {
-          var label = this.props.label;
-          var content = this.props.content;
-        }
-        ReactDOM.render(
-        <StartMenuWindow
-        projectTitle={label}
-        content={content}
-        />,
-        document.getElementById('window')
-        )
-        toggleShow('start-menu');
-        toggleShow('start-menu-overlay')
-    },
-    unmountMe: function(){
-        ReactDOM.unmountComponentAtNode(
-        document.getElementById('startMenuWindow')
-        )
-        var window = document.getElementsByClassName('window')[0];
-        window.style.display = "none";
-    },
-    render: function(){
-        return (
-            <div onClick={this.showWindow}>
-                <img src={this.props.icon} alt="" /><p className="text">{this.props.label}</p>
-            </div>
-        )
-    }
-});
 var StartMenuWindow = createClass({
     unmountMe: function(){
         ReactDOM.unmountComponentAtNode(
@@ -199,67 +147,6 @@ var StartMenuWindow = createClass({
         )
     }
 });
-
-// // About Start Menu Item
-// ReactDOM.render(
-// <StarMenuItem
-// label="About"
-// icon="images/icons/icon_24-0.png"
-// content='<div class="window-about"><h4 class="indent">I am a self-motivated and educated web developer. My experience building full-stack web applications in JavaScript, PHP and Ruby allows me to work on all aspects of projects and be productive when working on projects that are built in a team environment. In addition to my web development skills, my management experience allows me to be a leader or productive team member when it is needed.</div>' />,
-// document.getElementById('startMenu1')
-// )
-
-// // Contact Start Menu Item
-// ReactDOM.render(
-// <StarMenuItem
-// label="Contact"
-// icon="images/icons/icon_17-0.png" 
-// content='<ul class="contact-content"><h3><a href="mailto:contact@garrettestrin.com" target="_top">Email Me!</a> <img src="./images/email-min.png" alt="email icon"></h3><h3><a href="https://github.com/garrettestrin" target="_top">Github</a> <img src="./images/github-min.png" alt="gihub icon"></h3><h3><a href="https://www.linkedin.com/in/garrettestrin" target="_top">LinkedIn</a> <img src="./images/linkedin-min.png" alt="linkedin icon"></h3><h3><a href="https://twitter.com/garrettestrin">Twitter</a><img src="./images/twitter-min.png" alt="twitter icon"></h3></ul>'/>,
-// document.getElementById('startMenu2')
-// )
-
-// // Projects Start Menu Item
-// ReactDOM.render(
-// <StarMenuItem
-// label="Projects"
-// icon="images/icons/icon_3-0.png" 
-// content='<div style="    
-//   height: 400px;
-//   text-align: center;
-//   display: flex;
-//   align-items: center;
-//   width: 100%;
-//   justify-content: space-around;"
-// >Feature Coming Soon</div>'/>,
-// document.getElementById('startMenu3')
-// )
-
-// // Projects Start Menu Item
-// ReactDOM.render(
-// <StarMenuItem
-// label="Preferences"
-// icon="images/icons/icon_22-0.png" 
-// content='
-// <div style="    
-//   height: 400px;
-//   text-align: center;
-//   display: flex;
-//   align-items: center;
-//   width: 100%;
-//   justify-content: space-around;"
-// >
-//   Feature Coming Soon
-// </div>'/>,
-// document.getElementById('startMenu4')
-// )
-// // Projects Start Menu Item
-// ReactDOM.render(
-//   <StarMenuItem
-//   label="Welcome"
-//   icon="images/icons/icon_60-0.png" 
-//   content='welcome'/>,
-//   document.getElementById('startMenu5')
-//   )
 
 // function showStartUpMessage(message){
 //   ReactDOM.render(

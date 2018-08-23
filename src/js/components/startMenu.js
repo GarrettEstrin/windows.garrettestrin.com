@@ -1,9 +1,27 @@
 import React, { Component } from 'react';
 
+import StartMenuItem from './startMenuItem';
+import startMenuItems from '../initializers/startMenuItems';
+
 class StartMenu extends Component{
   constructor(props){
     super(props);
 
+    this.buildStartMenuItems = this.buildStartMenuItems.bind(this);
+  }
+
+  buildStartMenuItems(){
+    return startMenuItems.map((item) => {
+      return (
+        <li>
+          <StartMenuItem 
+            label={item.label}
+            icon={item.icon}
+            content={item.content}
+          />
+        </li>
+      )
+    })
   }
 
   render(){
@@ -12,11 +30,7 @@ class StartMenu extends Component{
         <div class="start-logo"></div>
         <div class="start-menu-items">
           <ul>
-            <li id="startMenu1"></li>
-            <li id="startMenu2"></li>
-            <li id="startMenu3"></li>
-            <li id="startMenu4"></li>
-            <li id="startMenu5"></li>
+            {this.buildStartMenuItems()}
           </ul>
         </div>
       </div>
