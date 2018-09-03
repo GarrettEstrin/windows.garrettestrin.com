@@ -1,6 +1,6 @@
-let appProps = [];
+let iconProps = [];
 
-appProps.push({
+iconProps.push({
   projectTitle:"Community Story Time",
   projectIcon:"icon story-time-icon",
   projectSubtitle:"A rails based web app that allows people to collaborate on stories.",
@@ -10,7 +10,7 @@ appProps.push({
   projectViewLink:"http://st.garrettestrin.com/"
 })
 
-appProps.push({
+iconProps.push({
   projectTitle:"The Beer Journal", 
   projectIcon:"icon beer-journal-icon",
   projectSubtitle:"A MEAN stack application where a user can log, review and share beers they have drunk",
@@ -20,7 +20,7 @@ appProps.push({
   projectViewLink:"http://tbj.garrettestrin.com/"
 })
 
-appProps.push({
+iconProps.push({
   projectTitle:"Our Big Day in SF",
   projectIcon:"icon big-day-icon",
   projectSubtitle:"Interactive Wedding Website",
@@ -30,7 +30,7 @@ appProps.push({
   projectViewLink:"http://ourbigdayinsf.com/"
 })
 
-appProps.push({
+iconProps.push({
   projectTitle:"A Word is Worth One Picture",
   projectIcon:"icon picture-game-icon",
   projectSubtitle:"A node.js based web app where users can play a word and image based game.",
@@ -40,7 +40,7 @@ appProps.push({
   projectViewLink:"https://infinite-eyrie-42957.herokuapp.com/",
 })
 
-appProps.push({
+iconProps.push({
   projectTitle:"Guac-a-Mole!",
   projectIcon:"icon mole-icon",
   projectSubtitle:"A JavaScript based game.",
@@ -50,7 +50,7 @@ appProps.push({
   projectViewLink:"https://garrettestrin.github.io/guac-a-mole/"
 })
 
-appProps.push({
+iconProps.push({
   projectTitle:"Did the Ducks Win?",
   projectIcon:"icon ducks-icon",
   projectSubtitle:"DB Proof of Concept.",
@@ -60,4 +60,4 @@ appProps.push({
   projectViewLink:"http://didtheduckswin.com"
 })
 
-export default appProps;
+export default iconProps;

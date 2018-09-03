@@ -22,9 +22,11 @@ function isEmpty(obj) {
 }
 // Check if any entry points have been created. Stop code if none have
 if(isEmpty(entry)){
-  console.log("No entry points provided.  Please create at least on .js entry point in src/");
+  console.log("No entry points provided.  Please create at least one .js entry point in src/");
   process.exit()
 }
+
+const env = "development";
 
 module.exports = env => {
 

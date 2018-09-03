@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import App from './app';
+import { connect } from 'react-redux';
+
+import Icon from './icon';
+import IconWindow from './iconWindow';
 import Application from './application';
 import TaskBar from './taskbar';
 import StartMenu from './startMenu';
 
-import AppProps from '../initializers/appProps';
+import IconProps from '../initializers/iconProps';
 
 class Desktop extends Component{
   constructor(props){
@@ -13,6 +16,7 @@ class Desktop extends Component{
       showStartMenu: false
     }
     this.buildDesktopIcons = this.buildDesktopIcons.bind(this);
+    this.buildIconWindow = this.buildIconWindow.bind(this);
     this.handleStartClick = this.handleStartClick.bind(this);
   }
 
@@ -25,9 +29,9 @@ class Desktop extends Component{
   }
 
   buildDesktopIcons(){
-    return AppProps.map((icon) => {
+    return IconProps.map((icon) => {
       return (
-        <App
+        <Icon
           projectTitle={icon.projectTitle}
           projectIcon={icon.projectIcon}
           projectSubtitle={icon.projectSubtitle}
@@ -40,6 +44,21 @@ class Desktop extends Component{
     })
   }
 
+  buildIconWindow() {
+    let { projectCodeLink, projectDescription, projectIcon, projectTitle, projectSubtitle, projectThumbnail, projectViewLink } = this.props.icon;
+    return (
+      <IconWindow 
+        projectTitle={projectTitle}
+        projectIcon={projectIcon}
+        projectSubtitle={projectSubtitle}
+        projectDescription={projectDescription}
+        projectThumbnail={projectThumbnail}
+        projectCodeLink={projectCodeLink}
+        projectViewLink={projectViewLink}
+      />
+    )
+  }
+
   render(){
     return (
       <div class="desktop">
@@ -48,7 +67,8 @@ class Desktop extends Component{
           projectTitle="Tic-Tac-Toe" 
           projectIcon="icon ttt-icon"
         />
-        <div class="window" id="window"></div>
+        {/* <div class="window" id="window"></div> */}
+        {this.props.icon.showWindow ? this.buildIconWindow() : null}
         <TaskBar handleClick={this.handleStartClick}/>
         {this.state.showStartMenu ? <StartMenu /> : null}
       </div>
@@ -81,4 +101,11 @@ function arrangeIcons() {
 window.arrangeIcons = arrangeIcons;
 window.addEventListener('resize', window.arrangeIcons);
 
-export default Desktop;
+function mapStateToProps(applicationState){
+  let { icon } = applicationState;
+  if(!icon.showWindow)
+    icon.showWindow = false;
+  return { icon };
+}
+
+export default connect(mapStateToProps)(Desktop);

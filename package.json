@@ -65,6 +65,8 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-draggable": "^3.0.5",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
     "sass-loader": "^7.0.1",
     "stylelint": "^9.2.0",
     "stylelint-config-standard": "^18.2.0",

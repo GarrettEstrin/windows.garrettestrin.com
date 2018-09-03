@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import createClass from 'create-react-class';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
 import StartUpScreen from './components/startUpScreen';
 import Desktop from './components/desktop';
-import TaskBar from './components/taskbar';
+import reducers from './reducers/index';
+
 
 class EntryApp extends Component {
   constructor(props){
@@ -22,13 +24,13 @@ class EntryApp extends Component {
   }
   render() {
     return (
-      <div class="main-container">
-        { this.state.startUpMounted ? <StartUpScreen unmountMe={this.handleStartUpScreenUnmount}/> : null }
-        <Desktop />
-        {/* 
-            <div class="start-menu-overlay" id="start-menu-overlay" onclick="window.toggleShow('start-menu'), window.toggleShow('start-menu-overlay')"></div>
-        */}
-      </div>
+      
+        <div class="main-container">
+          { this.state.startUpMounted ? <StartUpScreen unmountMe={this.handleStartUpScreenUnmount}/> : null }
+          <Provider store={createStore(reducers)}>
+            <Desktop/>
+          </Provider>
+        </div>
     )
   }
 }

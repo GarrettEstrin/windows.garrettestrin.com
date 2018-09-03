@@ -1,0 +1,3 @@
+export const CLICK_ICON = "CLICK_ICON";
+
+export const CLOSE_ICON_WINDOW = "CLOSE_ICON_WINDOW";
