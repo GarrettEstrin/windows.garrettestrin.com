@@ -13,6 +13,7 @@ import StartMenuWindow from './startMenuWindow';
 import IconProps from '../initializers/iconProps';
 
 import { clickStartMenuItem } from '../actions/start_menu_actions';
+import { storeWelcomeMessage } from '../actions/welcome_message_actions';
 
 class Desktop extends Component{
   constructor(props){
@@ -113,15 +114,19 @@ class Desktop extends Component{
     for(var i = 0, a = data, c = a.length;i<c;i++){
       if(a[i].gsx$a.$t == affiliateCode){
         let message = a[i].gsx$message.$t;
-        _this.setState({
-          message
-        })
+        _this.props.dispatch(
+          storeWelcomeMessage({
+            message
+          })
+        )
         return;
       }
       let message = "This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front-end Javascript Framework as well as front-end development tools such as Webpack and Sass.";
-      _this.setState({
-        message
-      })
+      _this.props.dispatch(
+        storeWelcomeMessage({
+          message
+        })
+      )
     }
   }
 
@@ -135,9 +140,9 @@ class Desktop extends Component{
   showWelcomeMessage() {
     this.props.dispatch(
       clickStartMenuItem({
-        label: "Welcome",
+        label: "Welcome to GarrettEstrin.com",
         content:  `
-          <div class="window-about" style="margin: 20px 0"><p style="margin: 0;" id="jsWelcomeMessage">${this.state.message}</p></div>
+          <div class="window-about" style="margin: 20px 0"><p style="margin: 0;" id="jsWelcomeMessage">${this.props.welcomeMessage.message}</p></div>
           <img src="images/logo.png"
             style="    
               width: 80%;
@@ -198,10 +203,10 @@ window.arrangeIcons = arrangeIcons;
 window.addEventListener('resize', window.arrangeIcons);
 
 function mapStateToProps(applicationState){
-  let { icon, startMenu } = applicationState;
+  let { icon, startMenu, welcomeMessage } = applicationState;
   if(!icon.showWindow)
     icon.showWindow = false;
-  return { icon, startMenu };
+  return { icon, startMenu, welcomeMessage };
 }
 
 export default connect(mapStateToProps)(Desktop);

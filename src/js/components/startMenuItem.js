@@ -6,9 +6,6 @@ import { clickStartMenuItem } from '../actions/start_menu_actions';
 class StartMenuItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      globalMessage:"This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front-end Javascript Framework as well as front-end development tools such as Webpack and Sass."
-    }
 
     this.showWindow = this.showWindow.bind(this);
   }
@@ -17,7 +14,7 @@ class StartMenuItem extends Component {
     if(this.props.content == "welcome"){
       var label = "Welcome to GarrettEstrin.com"
       var content = `
-      <div class="window-about" style="margin: 20px 0"><p style="margin: 0;" id="jsWelcomeMessage">${this.state.globalMessage}</p></div>
+      <div class="window-about" style="margin: 20px 0"><p style="margin: 0;" id="jsWelcomeMessage">${this.props.welcomeMessage.message}</p></div>
       <img src="images/logo.png"
         style="    
           width: 80%;
@@ -47,8 +44,8 @@ class StartMenuItem extends Component {
 }
 
 function mapStateToProps(applicationState){
-  let { startMenu } = applicationState;
-  return { startMenu };
+  let { startMenu, welcomeMessage } = applicationState;
+  return { startMenu, welcomeMessage };
 }
 
 export default connect(mapStateToProps)(StartMenuItem);
