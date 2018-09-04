@@ -92,40 +92,7 @@ render: function(){
     )
 }
 });
-var AppWindow = React.createClass({
-    unmountMe: function(){
-        ReactDOM.unmountComponentAtNode(
-        document.getElementById('window')
-        )
-        var window = document.getElementsByClassName('window')[0];
-        window.style.display = "none";
-    },
-    handleDrag: function(e, ui) {
-        const {x, y} = this.state.deltaPosition;
-        this.setState({
-            deltaPosition: {
-            x: x + ui.deltaX,
-            y: y + ui.deltaY,
-            }
-        });
-    },
-    componentDidMount: function() {
-    },
-    render: function(){
-        const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
-        return (
-        <Draggable handle=".window-title-bar" {...dragHandlers}>
-            <div className="application-container window-container">
-                <div className="window-title-bar">
-                    {this.props.projectTitle}
-                    <div className="x" onClick={this.unmountMe}>x</div>
-                </div>
-                <iframe src="views/tic-tac-toe.html" frameBorder="0"></iframe>
-            </div>
-        </Draggable>
-        )
-    }
-});
+
 var StarMenuItem = React.createClass({
     showWindow: function(){
         var window = document.getElementsByClassName('window')[0];

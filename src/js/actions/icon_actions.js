@@ -1,4 +1,9 @@
-import { CLICK_ICON, CLOSE_ICON_WINDOW } from '../actions/constants';
+import { 
+  CLICK_ICON, 
+  CLOSE_ICON_WINDOW, 
+  CLICK_APPLICATION_ICON,
+  CLOSE_APPLICATION_WINDOW 
+} from '../actions/constants';
 
 export function clickIcon(icon) {
   icon.showWindow = true;
@@ -13,5 +18,21 @@ export function closeIconWindow(icon) {
   return {
     type: CLOSE_ICON_WINDOW,
     payload: icon
+  }
+}
+
+export function clickApplicationIcon(application) {
+  application.showApplicationWindow = true;
+  return {
+    type: CLICK_APPLICATION_ICON,
+    payload: application
+  }
+}
+
+export function closeApplicationWindow(application) {
+  application.showApplicationWindow = false;
+  return {
+    type: CLOSE_APPLICATION_WINDOW,
+    payload: application
   }
 }

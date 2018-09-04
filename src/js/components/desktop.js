@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Icon from './icon';
 import IconWindow from './iconWindow';
 import Application from './application';
+import ApplicationWindow from './applicationWindow';
 import TaskBar from './taskbar';
 import StartMenu from './startMenu';
 
@@ -59,6 +60,15 @@ class Desktop extends Component{
     )
   }
 
+  buildApplicationWindow() {
+    return (
+      <ApplicationWindow 
+        view="views/tic-tac-toe.html"
+        projectTitle={"Tic-Tac-Toe"}
+      />
+    )
+  }
+
   render(){
     return (
       <div class="desktop">
@@ -67,7 +77,7 @@ class Desktop extends Component{
           projectTitle="Tic-Tac-Toe" 
           projectIcon="icon ttt-icon"
         />
-        {/* <div class="window" id="window"></div> */}
+        {this.props.icon.showApplicationWindow ? this.buildApplicationWindow() : null}
         {this.props.icon.showWindow ? this.buildIconWindow() : null}
         <TaskBar handleClick={this.handleStartClick}/>
         {this.state.showStartMenu ? <StartMenu /> : null}
