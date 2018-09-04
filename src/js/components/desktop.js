@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Axios from 'axios';
 
 import Icon from './icon';
 import IconWindow from './iconWindow';
@@ -25,6 +26,9 @@ class Desktop extends Component{
     this.handleStartClick = this.handleStartClick.bind(this);
     this.handleDesktopClick = this.handleDesktopClick.bind(this);
     this.showWelcomeMessage = this.showWelcomeMessage.bind(this);
+    this.getDataFromSpreadsheet = this.getDataFromSpreadsheet.bind(this);
+    this.parseDataFromSpreadSheetAndFindSpecificMessage = this.parseDataFromSpreadSheetAndFindSpecificMessage.bind(this);
+    this.getUrlParameter = this.getUrlParameter.bind(this);
   }
 
   componentDidMount(){
@@ -92,13 +96,48 @@ class Desktop extends Component{
     }
   }
 
+  getDataFromSpreadsheet() {
+    let _this = this;
+    Axios.get("https://spreadsheets.google.com/feeds/list/1l7ovaYTY2TvZ8zUHldG90RNltrlI3TVaje1OwXrjXR0/od6/public/values?alt=json")
+      .then(function({ data }){
+        _this.parseDataFromSpreadSheetAndFindSpecificMessage(data.feed.entry);
+      })
+      .then(function(){
+        _this.showWelcomeMessage();
+      })
+  }
+
+  parseDataFromSpreadSheetAndFindSpecificMessage(data) {
+    let _this = this;
+    let affiliateCode = _this.getUrlParameter('a');
+    for(var i = 0, a = data, c = a.length;i<c;i++){
+      if(a[i].gsx$a.$t == affiliateCode){
+        let message = a[i].gsx$message.$t;
+        _this.setState({
+          message
+        })
+        return;
+      }
+      let message = "This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front-end Javascript Framework as well as front-end development tools such as Webpack and Sass.";
+      _this.setState({
+        message
+      })
+    }
+  }
+
+  getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  };
+
   showWelcomeMessage() {
-    let message = "This website is designed to look like the classic theme from Microsoft Windows 95. It is built using the React front-end Javascript Framework as well as front-end development tools such as Webpack and Sass.";
     this.props.dispatch(
       clickStartMenuItem({
         label: "Welcome",
         content:  `
-          <div class="window-about" style="margin: 20px 0"><p style="margin: 0;" id="jsWelcomeMessage">${message}</p></div>
+          <div class="window-about" style="margin: 20px 0"><p style="margin: 0;" id="jsWelcomeMessage">${this.state.message}</p></div>
           <img src="images/logo.png"
             style="    
               width: 80%;
@@ -112,7 +151,7 @@ class Desktop extends Component{
   }
 
   componentWillMount() {
-    this.showWelcomeMessage();
+    this.getDataFromSpreadsheet();
   }
 
   render(){
