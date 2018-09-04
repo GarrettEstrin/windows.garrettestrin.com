@@ -7,6 +7,7 @@ import Application from './application';
 import ApplicationWindow from './applicationWindow';
 import TaskBar from './taskbar';
 import StartMenu from './startMenu';
+import StartMenuWindow from './startMenuWindow';
 
 import IconProps from '../initializers/iconProps';
 
@@ -18,7 +19,9 @@ class Desktop extends Component{
     }
     this.buildDesktopIcons = this.buildDesktopIcons.bind(this);
     this.buildIconWindow = this.buildIconWindow.bind(this);
+    this.buildStartMenuWindow = this.buildStartMenuWindow.bind(this);
     this.handleStartClick = this.handleStartClick.bind(this);
+    this.handleDesktopClick = this.handleDesktopClick.bind(this);
   }
 
   componentDidMount(){
@@ -69,18 +72,36 @@ class Desktop extends Component{
     )
   }
 
+  buildStartMenuWindow() {
+    return (
+      <StartMenuWindow
+        projectTitle={this.props.icon.projectTitle}
+        content={this.props.icon.content}
+      />
+    )
+  }
+
+  handleDesktopClick() {
+    if(this.state.showStartMenu) {
+      this.setState({
+        showStartMenu: false
+      })
+    }
+  }
+
   render(){
     return (
-      <div class="desktop">
+      <div class="desktop" onClick={() => this.handleDesktopClick()}>
         {this.buildDesktopIcons()}
+        {this.props.icon.showWindow ? this.buildIconWindow() : null}
         <Application
           projectTitle="Tic-Tac-Toe" 
           projectIcon="icon ttt-icon"
         />
         {this.props.icon.showApplicationWindow ? this.buildApplicationWindow() : null}
-        {this.props.icon.showWindow ? this.buildIconWindow() : null}
         <TaskBar handleClick={this.handleStartClick}/>
         {this.state.showStartMenu ? <StartMenu /> : null}
+        {this.props.startMenu.showStartMenuWindow ? this.buildStartMenuWindow() : null}
       </div>
     )
   }
@@ -112,10 +133,10 @@ window.arrangeIcons = arrangeIcons;
 window.addEventListener('resize', window.arrangeIcons);
 
 function mapStateToProps(applicationState){
-  let { icon } = applicationState;
+  let { icon, startMenu } = applicationState;
   if(!icon.showWindow)
     icon.showWindow = false;
-  return { icon };
+  return { icon, startMenu };
 }
 
 export default connect(mapStateToProps)(Desktop);

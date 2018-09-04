@@ -66,39 +66,6 @@ var StartMenuWindow = createClass({
         )
     }
 });
-var StartMenuWindow = createClass({
-    unmountMe: function(){
-        ReactDOM.unmountComponentAtNode(
-        document.getElementById('window')
-        )
-        var window = document.getElementsByClassName('window')[0];
-        window.style.display = "none";
-    },
-    handleDrag: function(e, ui) {
-        const {x, y} = this.state.deltaPosition;
-        this.setState({
-            deltaPosition: {
-            x: x + ui.deltaX,
-            y: y + ui.deltaY,
-            }
-        });
-    },
-    render: function(){
-        const dragHandlers = {onStart: this.onStart, onStop: this.onStop};    
-        return (
-        <Draggable handle=".window-title-bar" {...dragHandlers}>
-            <div className="application-container window-container start-menu-container">
-                <div className="window-title-bar">
-                    {this.props.projectTitle}
-                    <div className="x" onClick={this.unmountMe}>x</div>
-                </div>
-                <div 
-                dangerouslySetInnerHTML={{__html: this.props.content}} />
-            </div>
-        </Draggable>
-        )
-    }
-});
 
 // function showStartUpMessage(message){
 //   ReactDOM.render(

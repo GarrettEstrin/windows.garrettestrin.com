@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { clickStartMenuItem } from '../actions/start_menu_actions';
 
 class StartMenuItem extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      globalMessage:"This website is designed to look like the classic theme from Microsoft Windows 95.  It is built using the React front-end Javascript Framework as well as front-end development tools such as Webpack and Sass."
+    }
 
+    this.showWindow = this.showWindow.bind(this);
   }
 
   showWindow(){
-    var window = document.getElementsByClassName('window')[0];
-    window.style.display = "block";
     if(this.props.content == "welcome"){
       var label = "Welcome to GarrettEstrin.com"
       var content = `
-      <div class="window-about" style="margin: 20px 0"><p style="margin: 0;" id="jsWelcomeMessage">${globalMessage}</p></div>
+      <div class="window-about" style="margin: 20px 0"><p style="margin: 0;" id="jsWelcomeMessage">${this.state.globalMessage}</p></div>
       <img src="images/logo.png"
         style="    
           width: 80%;
@@ -25,23 +30,12 @@ class StartMenuItem extends Component {
       var label = this.props.label;
       var content = this.props.content;
     }
-    ReactDOM.render(
-    <StartMenuWindow
-    projectTitle={label}
-    content={content}
-    />,
-    document.getElementById('window')
+    this.props.dispatch(
+      clickStartMenuItem({
+        label,
+        content
+      })
     )
-    toggleShow('start-menu');
-    toggleShow('start-menu-overlay')
-  }
-
-  unmountMe(){
-    ReactDOM.unmountComponentAtNode(
-    document.getElementById('startMenuWindow')
-    )
-    var window = document.getElementsByClassName('window')[0];
-    window.style.display = "none";
   }
   render(){
     return (
@@ -52,4 +46,9 @@ class StartMenuItem extends Component {
   }
 }
 
-export default StartMenuItem;
+function mapStateToProps(applicationState){
+  let { startMenu } = applicationState;
+  return { startMenu };
+}
+
+export default connect(mapStateToProps)(StartMenuItem);
