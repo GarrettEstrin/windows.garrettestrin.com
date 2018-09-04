@@ -11,6 +11,8 @@ import StartMenuWindow from './startMenuWindow';
 
 import IconProps from '../initializers/iconProps';
 
+import { clickStartMenuItem } from '../actions/start_menu_actions';
+
 class Desktop extends Component{
   constructor(props){
     super(props);
@@ -22,6 +24,7 @@ class Desktop extends Component{
     this.buildStartMenuWindow = this.buildStartMenuWindow.bind(this);
     this.handleStartClick = this.handleStartClick.bind(this);
     this.handleDesktopClick = this.handleDesktopClick.bind(this);
+    this.showWelcomeMessage = this.showWelcomeMessage.bind(this);
   }
 
   componentDidMount(){
@@ -87,6 +90,29 @@ class Desktop extends Component{
         showStartMenu: false
       })
     }
+  }
+
+  showWelcomeMessage() {
+    let message = "This website is designed to look like the classic theme from Microsoft Windows 95. It is built using the React front-end Javascript Framework as well as front-end development tools such as Webpack and Sass.";
+    this.props.dispatch(
+      clickStartMenuItem({
+        label: "Welcome",
+        content:  `
+          <div class="window-about" style="margin: 20px 0"><p style="margin: 0;" id="jsWelcomeMessage">${message}</p></div>
+          <img src="images/logo.png"
+            style="    
+              width: 80%;
+              margin: 20px auto;
+              display: block;
+            "
+          ">
+          `
+      })
+    )
+  }
+
+  componentWillMount() {
+    this.showWelcomeMessage();
   }
 
   render(){
